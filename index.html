@@ -31,22 +31,15 @@
       font-weight: bold;
       font-size: 18px;
     }
-
-    .menu3:hover {
-      color: #fff;
-    }
-
+    .menu3:hover { color: #fff; }
     .menua {
       color: yellow;
       text-decoration: none;
       font-weight: bold;
       font-size: 18px;
     }
+    .menua:hover { color: #fff; }
 
-    .menua:hover {
-      color: fff;
-    }
-    
     /* Контент */
     .content {
       padding: 20px;
@@ -62,10 +55,10 @@
     }
     .top-row div {
       text-align: center;
-      max-width: 220px;
+      max-width: 250px;
     }
     .top-row img {
-      max-width: 200px;
+      max-width: 230px;
       border: 1px solid #ccc;
       padding: 5px;
       background: #f9f9f9;
@@ -85,25 +78,25 @@
       align-items: flex-start;
     }
 
-    /* Левая колонка с иконками */
+    /* Левая колонка (иконки) */
     .icons {
       display: flex;
       flex-direction: column;
       gap: 60px;
     }
     .icons img {
-      width: 80px;
+      width: 90px;
       border: 1px solid #ccc;
       padding: 5px;
       background: #f9f9f9;
       border-radius: 10px;
     }
 
-    /* Правая часть */
+    /* Правая колонка */
     .blocks {
       display: flex;
       flex-direction: column;
-      gap: 60px;
+      gap: 40px;
     }
     .row {
       display: flex;
@@ -114,7 +107,7 @@
 
     /* Карточки */
     .card {
-      width: 180px;
+      width: 220px;
       border: 1px solid #ccc;
       border-radius: 12px;
       padding: 10px;
@@ -129,9 +122,34 @@
     }
     .card p {
       margin: 0;
-      font-size: 14px;
+      font-size: 15px;
       font-weight: bold;
       color: #333;
+    }
+
+    /* Нові відео */
+    .videos {
+      margin-top: 50px;
+    }
+    .videos h2 {
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+    .videos-row {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .video-card {
+      width: 300px;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+    .video-card img {
+      width: 100%;
+      display: block;
     }
 
     /* Подвал */
@@ -166,20 +184,20 @@
       </div>
       <div>
         <img src="https://github.com/kkskkskskx/build/blob/main/logika.png?raw=true" alt="Logika">
-        <div class="highlight">Навчитесь програмувати та робити сайти тут!</div>
+        <div class="highlight">Навчитись програмувати та робити сайти тут!</div>
       </div>
     </div>
 
     <!-- Основной блок -->
     <div class="main-grid">
-      <!-- Левая колонка (иконки) -->
+      <!-- Левая колонка -->
       <div class="icons">
         <img src="https://github.com/kkskkskskx/build/blob/main/html_tag2.png?raw=true" alt="icon1">
         <img src="https://github.com/kkskkskskx/build/blob/main/telegka.jpg?raw=true" alt="icon2">
         <img src="https://raw.githubusercontent.com/kkskkskskx/build/refs/heads/main/images.jfif" alt="icon3">
       </div>
 
-      <!-- Правая колонка (карточки) -->
+      <!-- Правая колонка -->
       <div class="blocks">
         <!-- Первая строка -->
         <div class="row">
@@ -221,8 +239,21 @@
         <div class="row">
           <div class="card">
             <img src="https://github.com/kkskkskskx/build/blob/main/logika.png?raw=true" alt="">
-            <p>Навчитись програмувати та робити сайти тут</p>
+            <p>Навчитись програмувати та робити сайти тут</p>
           </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Нові відео -->
+    <div class="videos">
+      <h2>Нові відео</h2>
+      <div class="videos-row">
+        <div class="video-card">
+          <img src="https://github.com/kkskkskskx/build/blob/main/thumbnail.jpeg?raw=true" alt="">
+        </div>
+        <div class="video-card">
+          <img src="https://github.com/kkskkskskx/build/blob/main/maxresdefault%20(1).jpg?raw=true" alt="">
         </div>
       </div>
     </div>
