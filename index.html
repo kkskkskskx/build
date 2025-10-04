@@ -1,193 +1,104 @@
+<!DOCTYPE html>
 <html lang="uk">
 <head>
-  <meta charset="UTF-8">
-  <title>ArduinoHub</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: Comic Sans MS, Comic Sans, cursive;
-      background: #fff;
-    }
-
-    /* Шапка */
-    .header {
-      background: #2d2d2d;
-      color: white;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 10px 30px;
-    }
-    .header img { height: 50px; }
-    .menu { display: flex; gap: 30px; }
-    .menu3, .menua {
-      text-decoration: none;
-      font-weight: bold;
-      font-size: 18px;
-    }
-    .menu3 { color: #9acd32; }
-    .menua { color: yellow; }
-    .menu3:hover, .menua:hover { color: #fff; }
-
-    /* Контент */
-    .content {
-      padding: 20px;
-      max-width: 1200px;
-      margin: auto;
-    }
-
-    /* Верхні блоки */
-    .top-row {
-      display: flex;
-      justify-content: center;
-      gap: 40px;
-      margin-bottom: 40px;
-      flex-wrap: wrap;
-    }
-    .top-row div { max-width: 250px; text-align: center; }
-    .top-row img {
-      max-width: 230px;
-      border: 1px solid #ccc;
-      padding: 5px;
-      background: #f9f9f9;
-      border-radius: 10px;
-    }
-    .highlight { color: red; font-weight: bold; margin-top: 10px; }
-
-    /* Основна сітка */
-    .main-grid {
-      display: grid;
-      grid-template-columns: 120px 1fr; /* ліва колонка вузька, права заповнює */
-      gap: 40px;
-      align-items: start;
-    }
-
-    /* Ліва колонка (ікони чітко по вертикалі) */
-    .icons {
-      display: grid;
-      grid-template-rows: repeat(3, auto);
-      gap: 60px; /* однаковий відступ між */
-      justify-items: center;
-    }
-    .icons img {
-      width: 80px;
-      border: 1px solid #ccc;
-      padding: 5px;
-      background: #f9f9f9;
-      border-radius: 10px;
-    }
-
-    /* Права колонка */
-    .blocks {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-      gap: 20px;
-    }
-
-    /* Карточки */
-    .card {
-      border: 1px solid #ccc;
-      border-radius: 12px;
-      padding: 10px;
-      background: #f9f9f9;
-      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-      text-align: center;
-    }
-    .card img {
-      width: 100%;
-      border-radius: 8px;
-      margin-bottom: 10px;
-    }
-    .card p {
-      margin: 0;
-      font-size: 15px;
-      font-weight: bold;
-      color: #333;
-    }
-
-    /* Нові відео */
-    .videos { margin-top: 50px; text-align: center; }
-    .videos h2 { font-size: 24px; margin-bottom: 20px; }
-    .videos-row {
-      display: flex;
-      gap: 20px;
-      flex-wrap: wrap;
-      justify-content: center;
-    }
-    .video-card {
-      flex: 1 1 300px;
-      max-width: 400px;
-      border-radius: 12px;
-      overflow: hidden;
-      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-    }
-    .video-card img { width: 100%; display: block; }
-
-    /* Адаптивність */
-    @media (max-width: 992px) {
-      .main-grid { grid-template-columns: 100px 1fr; }
-    }
-    @media (max-width: 768px) {
-      .main-grid { grid-template-columns: 1fr; }
-      .icons { grid-template-columns: repeat(3, 1fr); grid-template-rows: auto; }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ArduinoHub (таблична копія)</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #fff;
+    color: #000;
+    text-align: center;
+  }
+  table {
+    border-collapse: collapse;
+    margin: 0 auto;
+  }
+  td {
+    border: 1px solid transparent;
+    vertical-align: top;
+    padding: 15px;
+    text-align: center;
+  }
+  header {
+    background-color: #2D2D2D;
+    color: white;
+    padding: 10px;
+  }
+  nav a {
+    color: #5CB85C;
+    margin: 0 15px;
+    font-size: 20px;
+    text-decoration: none;
+  }
+  nav a:first-child {
+    color: #7CFF7C;
+  }
+  .orange-text {
+    color: #FF6900;
+    font-weight: bold;
+  }
+  footer {
+    background-color: #2D2D2D;
+    color: #FCB900;
+    padding: 10px;
+    font-size: 18px;
+  }
+  h2 {
+    font-size: 36px;
+    margin: 30px 0;
+  }
+</style>
 </head>
 <body>
-  <!-- Шапка -->
-  <div class="header">
-    <img src="https://github.com/kkskkskskx/build/blob/main/arduinohub_horizontal_dark.png?raw=true" alt="ArduinoHub Logo">
-    <div class="menu">
-      <a class="menua" href="#">Головна</a>
-      <a class="menu3" href="#">Проєкти</a>
-      <a class="menu3" href="#">Заняття</a>
-      <a class="menu3" href="#">Магазин</a>
-    </div>
-  </div>
+<header>
+  <table width="100%">
+    <tr>
+      <td style="text-align:left"><img src="arduinohub_horizontal_dark.png" alt="ArduinoHub" height="60"></td>
+      <td style="text-align:right">
+        <nav>
+          <a href="#">Головна</a>
+          <a href="#">Заняття</a>
+          <a href="#">Проєкти</a>
+          <a href="#">Магазин</a>
+        </nav>
+      </td>
+    </tr>
+  </table>
+</header>
 
-  <div class="content">
-    <!-- Верхні блоки -->
-    <div class="top-row">
-      <div>
-        <img src="https://github.com/kkskkskskx/build/blob/main/ardu.webp?raw=true" alt="Arduino Kit">
-        <div class="highlight">Новий набір Arduino купити!</div>
-      </div>
-      <div>
-        <img src="https://github.com/kkskkskskx/build/blob/main/logika.png?raw=true" alt="Logika">
-        <div class="highlight">Навчитись програмувати та робити сайти тут!</div>
-      </div>
-    </div>
+<!-- Основна таблиця контенту -->
+<table width="90%">
+  <tr>
+    <td colspan="3"><img src="ardu.png" width="350" height="250"><br><span class="orange-text">Новий набір Arduino купити!</span></td>
+    <td colspan="3"><img src="images.png" width="350" height="250"><br><span class="orange-text">Навчитися програмувати та робити сайти тут!</span></td>
+  </tr>
 
-    <!-- Основна сітка -->
-    <div class="main-grid">
-      <!-- Ліва колонка -->
-      <div class="icons">
-        <img src="https://github.com/kkskkskskx/build/blob/main/html_tag2.png?raw=true" alt="icon1">
-        <img src="https://github.com/kkskkskskx/build/blob/main/telegka.jpg?raw=true" alt="icon2">
-        <img src="https://raw.githubusercontent.com/kkskkskskx/build/refs/heads/main/images.jfif" alt="icon3">
-      </div>
+  <!-- Перша лінія трьох блоків -->
+  <tr>
+    <td><img src="icon1.png" width="100"><br>HTML / CSS</td>
+    <td><img src="icon2.png" width="100"><br>Відеоуроки</td>
+    <td><img src="icon3.png" width="100"><br>Проекти учнів</td>
+  </tr>
+  <!-- Друга лінія трьох блоків -->
+  <tr>
+    <td><img src="icon4.png" width="100"><br>Магазин Arduino</td>
+    <td><img src="icon5.png" width="100"><br>Приклади кодів</td>
+    <td><img src="icon6.png" width="100"><br>Підключення датчиків</td>
+  </tr>
+</table>
 
-      <!-- Права колонка -->
-      <div class="blocks">
-        <div class="card"><img src="https://github.com/kkskkskskx/build/blob/main/simplergb-prev.webp?raw=true"><p>RGB контроллер для логотипа канала</p></div>
-        <div class="card"><img src="https://github.com/kkskkskskx/build/blob/main/thumbnail.jpeg?raw=true"><p>WemosD1 Mini Деаунтифікатор 2.4Ghz NetherCap</p></div>
-        <div class="card"><img src="https://github.com/kkskkskskx/build/blob/main/ripcalendar.webp?raw=true"><p>Отривна Метео станція</p></div>
-        <div class="card"><img src="https://github.com/kkskkskskx/build/blob/main/maxresdefault%20(1).jpg?raw=true"><p>Читалка або шпаргалка</p></div>
-        <div class="card"><img src="https://github.com/kkskkskskx/build/blob/main/solder2-1-600x401.webp?raw=true"><p>ArduinoKit Start Купуй скоріше</p></div>
-        <div class="card"><img src="https://github.com/kkskkskskx/build/blob/main/starterkit_02.unbox_934x700.webp?raw=true"><p>Набір інструментів для Arduino</p></div>
-        <div class="card"><img src="https://github.com/kkskkskskx/build/blob/main/260722262.webp?raw=true"><p>Проводки (Дюпони)</p></div>
-        <div class="card"><img src="https://github.com/kkskkskskx/build/blob/main/logika.png?raw=true"><p>Навчитись програмувати та робити сайти тут</p></div>
-      </div>
-    </div>
+<h2>Нові відео</h2>
+<table width="80%">
+  <tr>
+    <td><img src="video1.jpg" width="500" height="250"></td>
+    <td><img src="video2.jpg" width="500" height="250"></td>
+  </tr>
+</table>
 
-    <!-- Нові відео -->
-    <div class="videos">
-      <h2>Нові відео</h2>
-      <div class="videos-row">
-        <div class="video-card"><img src="https://github.com/kkskkskskx/build/blob/main/thumbnail.jpeg?raw=true"></div>
-        <div class="video-card"><img src="https://github.com/kkskkskskx/build/blob/main/maxresdefault%20(1).jpg?raw=true"></div>
-      </div>
-    </div>
-  </div>
+<footer>
+  Copyright © 2025 ArduinoHub Technologies
+</footer>
 </body>
 </html>
