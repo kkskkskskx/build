@@ -5,13 +5,42 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Планеты Космоса</title>
 <style>
-  /* Основной фон */
+  /* Основной фон с анимированными звёздами */
   body {
     margin: 0;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background: radial-gradient(ellipse at bottom, #0f2027, #203a43, #2c5364);
     color: #fff;
     overflow-x: hidden;
+  }
+
+  /* Звёзды */
+  .stars {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    z-index: 0;
+  }
+  .stars::after {
+    content: '';
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background: white;
+    box-shadow:
+      50vw 10vh white,
+      20vw 80vh white,
+      70vw 30vh white,
+      10vw 50vh white,
+      90vw 70vh white,
+      40vw 60vh white,
+      80vw 20vh white;
+    animation: twinkle 3s infinite alternate;
+  }
+  @keyframes twinkle {
+    0% {opacity: 0.2;}
+    100% {opacity: 1;}
   }
 
   /* Header и Navbar */
@@ -21,6 +50,8 @@
     background: rgba(0,0,0,0.3);
     backdrop-filter: blur(5px);
     box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+    position: relative;
+    z-index: 2;
   }
 
   header h1 {
@@ -70,35 +101,35 @@
   }
 
   .planet1 {
-    width: 80px;
-    height: 80px;
+    width: 100px;
+    height: 100px;
     top: 20%;
     left: 10%;
-    background: radial-gradient(circle at 30% 30%, #ff9a9e, #fad0c4);
+    background: url('https://cdn.pixabay.com/photo/2015/09/18/18/03/mars-944029_960_720.jpg') center/cover no-repeat;
     animation-duration: 12s;
   }
 
   .planet2 {
-    width: 120px;
-    height: 120px;
+    width: 140px;
+    height: 140px;
     top: 50%;
     left: 70%;
-    background: radial-gradient(circle at 20% 20%, #a1c4fd, #c2e9fb);
+    background: url('https://cdn.pixabay.com/photo/2016/11/29/04/23/jupiter-1866601_960_720.jpg') center/cover no-repeat;
     animation-duration: 15s;
   }
 
   .planet3 {
-    width: 60px;
-    height: 60px;
+    width: 80px;
+    height: 80px;
     top: 70%;
     left: 30%;
-    background: radial-gradient(circle at 40% 40%, #fbc2eb, #a6c1ee);
+    background: url('https://cdn.pixabay.com/photo/2015/09/18/18/03/saturn-944028_960_720.jpg') center/cover no-repeat;
     animation-duration: 8s;
   }
 
   @keyframes float {
     0% {transform: translateY(0) translateX(0) rotate(0deg);}
-    50% {transform: translateY(-30px) translateX(20px) rotate(45deg);}
+    50% {transform: translateY(-40px) translateX(20px) rotate(45deg);}
     100% {transform: translateY(0) translateX(0) rotate(0deg);}
   }
 
@@ -130,12 +161,6 @@
     background: rgba(255,255,255,0.2);
   }
 
-  /* Рандомные изображения через CSS классы */
-  .planet-img1 {background-image: url('https://picsum.photos/200/200?planet1');}
-  .planet-img2 {background-image: url('https://picsum.photos/200/200?planet2');}
-  .planet-img3 {background-image: url('https://picsum.photos/200/200?planet3');}
-  .planet-img4 {background-image: url('https://picsum.photos/200/200?planet4');}
-
   .card img {
     width: 100%;
     border-radius: 50%;
@@ -155,11 +180,14 @@
     backdrop-filter: blur(5px);
     font-weight: bold;
     margin-top: 50px;
+    position: relative;
+    z-index: 2;
   }
-
 </style>
 </head>
 <body>
+
+<div class="stars"></div>
 
 <header>
   <h1>Планеты Космоса</h1>
@@ -172,29 +200,29 @@
   </nav>
 </header>
 
-<!-- Анимационные планеты -->
+<!-- Анимированные планеты -->
 <div class="planet planet1"></div>
 <div class="planet planet2"></div>
 <div class="planet planet3"></div>
 
 <section>
   <div class="card">
-    <img class="planet-img1" alt="Марс" src="https://picsum.photos/200/200?planet1">
+    <img src="https://cdn.pixabay.com/photo/2015/09/18/18/03/mars-944029_960_720.jpg" alt="Марс">
     <h3>Марс</h3>
     <p>Красная планета с каньонами и пылевыми бурями.</p>
   </div>
   <div class="card">
-    <img class="planet-img2" alt="Юпитер" src="https://picsum.photos/200/200?planet2">
+    <img src="https://cdn.pixabay.com/photo/2016/11/29/04/23/jupiter-1866601_960_720.jpg" alt="Юпитер">
     <h3>Юпитер</h3>
     <p>Крупнейшая планета Солнечной системы с Большим Красным Пятном.</p>
   </div>
   <div class="card">
-    <img class="planet-img3" alt="Сатурн" src="https://picsum.photos/200/200?planet3">
+    <img src="https://cdn.pixabay.com/photo/2015/09/18/18/03/saturn-944028_960_720.jpg" alt="Сатурн">
     <h3>Сатурн</h3>
     <p>Известен своими кольцами и газовой атмосферой.</p>
   </div>
   <div class="card">
-    <img class="planet-img4" alt="Земля" src="https://picsum.photos/200/200?planet4">
+    <img src="https://cdn.pixabay.com/photo/2015/09/18/18/03/earth-944027_960_720.jpg" alt="Земля">
     <h3>Земля</h3>
     <p>Единственная планета с подтверждённой жизнью и океанами.</p>
   </div>
