@@ -3,182 +3,60 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Планети Сонячної системи</title>
+<title>Марс</title>
 <style>
   body {
-    margin: 0;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: radial-gradient(ellipse at bottom, #0f2027, #203a43, #2c5364);
-    color: #fff;
-    scroll-behavior: smooth;
+    margin: 20px;
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: #111;
   }
-
-  /* Navbar */
-  header {
-    position: fixed;
-    width: 100%;
-    top: 0;
-    z-index: 10;
-    background: rgba(0,0,0,0.4);
-    backdrop-filter: blur(5px);
-    box-shadow: 0 2px 10px rgba(0,0,0,0.5);
-    padding: 15px 30px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-
-  header h1 {
-    font-size: 1.8em;
-    margin: 0;
-    color: #fff;
-    text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
-  }
-
-  nav a {
-    text-decoration: none;
-    color: #fff;
-    font-weight: bold;
-    margin-left: 20px;
-    position: relative;
-    transition: 0.3s;
-  }
-
-  nav a::after {
-    content: '';
-    position: absolute;
-    width: 0%;
-    height: 2px;
-    bottom: -3px;
-    left: 0;
-    background-color: #fff;
-    transition: 0.3s;
-  }
-
-  nav a:hover::after {
-    width: 100%;
-  }
-
-  /* Секції */
-  section {
-    min-height: 100vh;
-    padding: 100px 20px 50px 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+  h1 {
     text-align: center;
-  }
-
-  section h2 {
-    font-size: 3em;
     margin-bottom: 20px;
-    text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
   }
-
-  section p {
-    max-width: 700px;
-    font-size: 1.2em;
-    line-height: 1.6em;
-    margin-bottom: 30px;
+  h2 {
+    margin-top: 30px;
+    color: #333;
   }
-
-  section img {
-    width: 300px;
-    height: 300px;
-    border-radius: 50%;
-    box-shadow: 0 0 30px rgba(255,255,255,0.5);
-    transition: transform 0.5s, filter 0.5s;
+  p {
+    margin-bottom: 15px;
+    text-align: justify;
   }
-
-  section img:hover {
-    transform: scale(1.1) rotate(5deg);
-    filter: brightness(1.2);
-  }
-
-  /* Фон зірок */
-  .stars {
-    position: fixed;
+  img.planet-img {
+    display: block;
+    max-width: 600px;
     width: 100%;
-    height: 100%;
-    z-index: -1;
-    background: transparent;
-  }
-
-  .stars::after {
-    content: '';
-    position: absolute;
-    width: 2px;
-    height: 2px;
-    background: white;
-    box-shadow:
-      10vw 20vh white,
-      20vw 40vh white,
-      30vw 60vh white,
-      40vw 80vh white,
-      50vw 30vh white,
-      60vw 70vh white,
-      70vw 10vh white,
-      80vw 50vh white,
-      90vw 90vh white;
-    animation: twinkle 3s infinite alternate;
-  }
-
-  @keyframes twinkle {
-    0% {opacity: 0.2;}
-    100% {opacity: 1;}
-  }
-
-  footer {
-    text-align: center;
-    padding: 30px 20px;
-    background: rgba(0,0,0,0.4);
-    font-weight: bold;
-    color: #fff;
+    margin: 0 auto 30px auto;
+    border-radius: 15px;
   }
 </style>
 </head>
 <body>
 
-<div class="stars"></div>
+<h1>Марс</h1>
+<img src="https://cdn.pixabay.com/photo/2015/09/18/18/03/mars-944029_960_720.jpg" alt="Марс" class="planet-img">
 
-<header>
-  <h1>Планети Сонячної системи</h1>
-  <nav>
-    <a href="#mars">Марс</a>
-    <a href="#jupiter">Юпітер</a>
-    <a href="#saturn">Сатурн</a>
-    <a href="#earth">Земля</a>
-  </nav>
-</header>
+<h2>Огляд</h2>
+<p>Марс — четверта планета від Сонця, часто називається «Червона планета» через характерний червонуватий відтінок поверхні, який зумовлений оксидом заліза. Це одна з найближчих до Землі планет, і вона є однією з найцікавіших для досліджень. Марс має подібну до Землі тривалість доби, приблизно 24,6 години, та виражені сезонні зміни. Планета є меншою за Землю, її діаметр становить близько 6794 км, а маса — приблизно 10% від земної.</p>
 
-<section id="mars">
-  <h2>Марс</h2>
-  <img src="https://cdn.pixabay.com/photo/2015/09/18/18/03/mars-944029_960_720.jpg" alt="Марс">
-  <p>Червона планета з величезними каньйонами, вулканами та пиловими бурями. Вчені вивчають її для можливого майбутнього колонізування.</p>
-</section>
+<h2>Поверхня</h2>
+<p>Поверхня Марса надзвичайно різноманітна. Тут є високі вулкани, великі каньйони та рівнини. Найвідоміший вулкан — Олімп, який є найбільшим у Сонячній системі. Каньйон Валлес Марінеріс тягнеться на понад 4000 км і глибокий до 7 км. Поверхня вкрита червоним пилом, що робить планету впізнаваною навіть через телескопи з Землі. Також на планеті є полярні шапки, які складаються із замерзлого вуглекислого газу та водяного льоду. Вони змінюються сезонно і частково зникають влітку.</p>
 
-<section id="jupiter">
-  <h2>Юпітер</h2>
-  <img src="https://cdn.pixabay.com/photo/2016/11/29/04/23/jupiter-1866601_960_720.jpg" alt="Юпітер">
-  <p>Найбільша планета Сонячної системи, відома своїм Великим Червоним Плямою та багатьма супутниками.</p>
-</section>
+<h2>Атмосфера</h2>
+<p>Атмосфера Марса дуже тонка і складається переважно з вуглекислого газу (близько 95%), азоту (2,6%) та аргону (1,9%). Тиск на поверхні становить менше 1% від земного, тому вода на поверхні не може залишатися в рідкому стані довго. Атмосфера планети не забезпечує достатнього захисту від космічної радіації. Через слабку атмосферу на Марсі відбуваються сильні пилові бурі, іноді вони охоплюють всю планету. Сезонні зміни в атмосфері впливають на температуру і склад полярних шапок.</p>
 
-<section id="saturn">
-  <h2>Сатурн</h2>
-  <img src="https://cdn.pixabay.com/photo/2015/09/18/18/03/saturn-944028_960_720.jpg" alt="Сатурн">
-  <p>Газовий гігант з вражаючими кільцями. Його структура і атмосфера дуже цікаві для астрономів.</p>
-</section>
+<h2>Вода на Марсі</h2>
+<p>Вода на Марсі існує переважно у вигляді льоду. Полярні шапки містять великі запаси замерзлої води, а під поверхнею виявлені потенційні підземні резервуари води. Вода на поверхні в рідкому стані існує дуже рідко через низький тиск, але є сліди колишніх річок і озер, що свідчить про наявність рідкої води мільярди років тому. Вчені вивчають можливість використання цих запасів для майбутніх місій та колоній.</p>
 
-<section id="earth">
-  <h2>Земля</h2>
-  <img src="https://cdn.pixabay.com/photo/2015/09/18/18/03/earth-944027_960_720.jpg" alt="Земля">
-  <p>Єдина планета з підтвердженим життям та величезними океанами. Тут існують тисячі форм життя та унікальні екосистеми.</p>
-</section>
+<h2>Супутники</h2>
+<p>Марс має два невеликі супутники — Фобос і Деймос. Вони дуже маленькі і неправильної форми, можливо, це захоплені астероїди. Фобос розташований ближче до планети та обертається дуже швидко, його можна побачити, як рухається на небі Марса кілька разів за день. Деймос обертається повільніше і знаходиться далі від планети. Обидва супутники досліджуються космічними апаратами, щоб краще зрозуміти їх походження.</p>
 
-<footer>
-  &copy; 2025 Планети Сонячної системи. Всі права захищено.
-</footer>
+<h2>Дослідження</h2>
+<p>Марс активно досліджується з середини XX століття. Початкові космічні апарати передавали фотографії поверхні та вимірювали атмосферу. Відомі місії включають Mars Pathfinder, Spirit, Opportunity, Curiosity та Perseverance. Метою цих місій є вивчення геології, атмосфери, пошук слідів минулого життя та підготовка до можливих пілотованих місій. Науковці вивчають умови для життя, наявність води та потенційну колонізацію планети в майбутньому.</p>
+
+<h2>Майбутнє</h2>
+<p>Марс залишається однією з головних цілей космічних досліджень. Плани включають відправку нових роверов, а також підготовку пілотованих місій. Дослідження Марса допомагають зрозуміти історію Сонячної системи, можливість життя поза Землею та технології для майбутньої колонізації. Поява рішень для життєзабезпечення та використання ресурсів Марса може стати ключем до майбутніх міжпланетних подорожей.</p>
 
 </body>
 </html>
