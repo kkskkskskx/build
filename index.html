@@ -1,104 +1,163 @@
 <!DOCTYPE html>
-<html lang="uk">
+<html lang="ru">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ArduinoHub (таблична копія)</title>
+<title>Планеты космоса</title>
 <style>
+  /* Общие стили */
   body {
-    font-family: Arial, sans-serif;
-    background-color: #fff;
-    color: #000;
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: radial-gradient(ellipse at bottom, #0f2027, #203a43, #2c5364);
+    overflow-x: hidden;
+    color: #fff;
+  }
+
+  h1, h2, h3 {
     text-align: center;
   }
-  table {
-    border-collapse: collapse;
-    margin: 0 auto;
-  }
-  td {
-    border: 1px solid transparent;
-    vertical-align: top;
-    padding: 15px;
-    text-align: center;
-  }
+
   header {
-    background-color: #2D2D2D;
-    color: white;
-    padding: 10px;
+    padding: 60px 20px;
+    text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
   }
-  nav a {
-    color: #5CB85C;
-    margin: 0 15px;
-    font-size: 20px;
-    text-decoration: none;
+
+  header h1 {
+    font-size: 3em;
+    animation: fadeIn 2s ease;
   }
-  nav a:first-child {
-    color: #7CFF7C;
+
+  /* Планеты */
+  .planet {
+    position: absolute;
+    border-radius: 50%;
+    background: radial-gradient(circle at 30% 30%, #ff9a9e, #fad0c4);
+    box-shadow: 0 0 30px rgba(255,255,255,0.5);
+    animation: float 10s infinite alternate ease-in-out;
   }
-  .orange-text {
-    color: #FF6900;
-    font-weight: bold;
+
+  .planet1 {
+    width: 80px;
+    height: 80px;
+    top: 20%;
+    left: 10%;
+    animation-duration: 12s;
   }
+
+  .planet2 {
+    width: 120px;
+    height: 120px;
+    top: 50%;
+    left: 70%;
+    background: radial-gradient(circle at 20% 20%, #a1c4fd, #c2e9fb);
+    animation-duration: 15s;
+  }
+
+  .planet3 {
+    width: 60px;
+    height: 60px;
+    top: 70%;
+    left: 30%;
+    background: radial-gradient(circle at 40% 40%, #fbc2eb, #a6c1ee);
+    animation-duration: 8s;
+  }
+
+  @keyframes float {
+    0% {transform: translateY(0) translateX(0) rotate(0deg);}
+    50% {transform: translateY(-30px) translateX(20px) rotate(45deg);}
+    100% {transform: translateY(0) translateX(0) rotate(0deg);}
+  }
+
+  @keyframes fadeIn {
+    from {opacity: 0; transform: translateY(-20px);}
+    to {opacity: 1; transform: translateY(0);}
+  }
+
+  /* Секция с планетами */
+  section {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    padding: 50px 20px;
+  }
+
+  .card {
+    background: rgba(255,255,255,0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 20px;
+    width: 250px;
+    text-align: center;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+    transition: transform 0.5s ease, box-shadow 0.5s ease;
+  }
+
+  .card:hover {
+    transform: translateY(-10px) scale(1.05);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+  }
+
+  .card img {
+    width: 100%;
+    border-radius: 50%;
+    margin-bottom: 15px;
+    transition: transform 0.5s ease;
+  }
+
+  .card img:hover {
+    transform: scale(1.1);
+  }
+
   footer {
-    background-color: #2D2D2D;
-    color: #FCB900;
-    padding: 10px;
-    font-size: 18px;
-  }
-  h2 {
-    font-size: 36px;
-    margin: 30px 0;
+    text-align: center;
+    padding: 30px 20px;
+    background: rgba(0,0,0,0.3);
+    backdrop-filter: blur(5px);
+    font-weight: bold;
+    margin-top: 50px;
   }
 </style>
 </head>
 <body>
+
 <header>
-  <table width="100%">
-    <tr>
-      <td style="text-align:left"><img src="arduinohub_horizontal_dark.png" alt="ArduinoHub" height="60"></td>
-      <td style="text-align:right">
-        <nav>
-          <a href="#">Головна</a>
-          <a href="#">Заняття</a>
-          <a href="#">Проєкти</a>
-          <a href="#">Магазин</a>
-        </nav>
-      </td>
-    </tr>
-  </table>
+  <h1>Планеты Космоса</h1>
+  <p>Красивый сайт с анимациями и рассказами о планетах</p>
 </header>
 
-<!-- Основна таблиця контенту -->
-<table width="90%">
-  <tr>
-    <td colspan="3"><img src="ardu.png" width="350" height="250"><br><span class="orange-text">Новий набір Arduino купити!</span></td>
-    <td colspan="3"><img src="images.png" width="350" height="250"><br><span class="orange-text">Навчитися програмувати та робити сайти тут!</span></td>
-  </tr>
+<!-- Анимационные планеты -->
+<div class="planet planet1"></div>
+<div class="planet planet2"></div>
+<div class="planet planet3"></div>
 
-  <!-- Перша лінія трьох блоків -->
-  <tr>
-    <td><img src="icon1.png" width="100"><br>HTML / CSS</td>
-    <td><img src="icon2.png" width="100"><br>Відеоуроки</td>
-    <td><img src="icon3.png" width="100"><br>Проекти учнів</td>
-  </tr>
-  <!-- Друга лінія трьох блоків -->
-  <tr>
-    <td><img src="icon4.png" width="100"><br>Магазин Arduino</td>
-    <td><img src="icon5.png" width="100"><br>Приклади кодів</td>
-    <td><img src="icon6.png" width="100"><br>Підключення датчиків</td>
-  </tr>
-</table>
-
-<h2>Нові відео</h2>
-<table width="80%">
-  <tr>
-    <td><img src="video1.jpg" width="500" height="250"></td>
-    <td><img src="video2.jpg" width="500" height="250"></td>
-  </tr>
-</table>
+<section>
+  <div class="card">
+    <img src="https://picsum.photos/200/200?planet1" alt="Марс">
+    <h3>Марс</h3>
+    <p>Марс — красная планета, четвертая от Солнца. Известен своими каньонами и пылевыми бурями.</p>
+  </div>
+  <div class="card">
+    <img src="https://picsum.photos/200/200?planet2" alt="Юпитер">
+    <h3>Юпитер</h3>
+    <p>Юпитер — крупнейшая планета Солнечной системы. Имеет знаменитое Большое Красное Пятно.</p>
+  </div>
+  <div class="card">
+    <img src="https://picsum.photos/200/200?planet3" alt="Сатурн">
+    <h3>Сатурн</h3>
+    <p>Сатурн известен своими великолепными кольцами и газовой структурой атмосферы.</p>
+  </div>
+  <div class="card">
+    <img src="https://picsum.photos/200/200?planet4" alt="Земля">
+    <h3>Земля</h3>
+    <p>Земля — единственная планета с подтверждённой жизнью. Имеет океаны, атмосферу и разнообразные экосистемы.</p>
+  </div>
+</section>
 
 <footer>
-  Copyright © 2025 ArduinoHub Technologies
+  &copy; 2025 Планеты Космоса. Все права защищены.
 </footer>
+
 </body>
 </html>
