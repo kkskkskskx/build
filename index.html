@@ -1,4 +1,4 @@
-<html>
+<html lang="uk">
 <head>
   <meta charset="UTF-8">
   <title>ArduinoHub</title>
@@ -7,6 +7,9 @@
       margin: 0;
       font-family: Comic Sans MS, Comic Sans, cursive;
       background: #fff;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
     }
 
     /* Шапка */
@@ -40,28 +43,51 @@
     }
     .menua:hover { color: #fff; }
 
+    /* Макет */
+    .main-layout {
+      display: flex;
+      flex: 1;
+    }
+
+    /* Сайдбар */
+    .sidebar {
+      background: #f9f9f9;
+      border-right: 1px solid #ccc;
+      padding: 20px 10px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 40px;
+      width: 100px;
+    }
+    .sidebar img {
+      width: 60px;
+      border: 1px solid #ccc;
+      padding: 5px;
+      border-radius: 10px;
+      background: #fff;
+    }
+
     /* Контент */
     .content {
+      flex: 1;
       padding: 20px;
       text-align: center;
     }
 
-    /* Верхние 2 блока */
+    /* Верхние блоки */
     .top-row {
       display: flex;
       justify-content: center;
       gap: 40px;
+      flex-wrap: wrap;
       margin-bottom: 40px;
     }
-    .top-row div {
-      text-align: center;
-      max-width: 250px;
-    }
     .top-row img {
-      max-width: 230px;
+      max-width: 220px;
       border: 1px solid #ccc;
       padding: 5px;
-      background: #f9f9f9;
+      background: #fff;
       border-radius: 10px;
     }
     .highlight {
@@ -70,48 +96,17 @@
       margin-top: 10px;
     }
 
-    /* Основной контейнер */
-    .main-grid {
-      display: flex;
-      gap: 30px;
-      justify-content: flex-start;
-      align-items: flex-start;
-    }
-
-    /* Левая колонка (иконки) */
-    .icons {
-      display: flex;
-      flex-direction: column;
-      gap: 60px;
-    }
-    .icons img {
-      width: 90px;
-      border: 1px solid #ccc;
-      padding: 5px;
-      background: #f9f9f9;
-      border-radius: 10px;
-    }
-
-    /* Правая колонка */
-    .blocks {
-      display: flex;
-      flex-direction: column;
-      gap: 40px;
-    }
-    .row {
-      display: flex;
+    /* Сетка карточек */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
       gap: 20px;
-      flex-wrap: wrap;
-      justify-content: flex-start;
     }
-
-    /* Карточки */
     .card {
-      width: 220px;
+      background: #f9f9f9;
       border: 1px solid #ccc;
       border-radius: 12px;
       padding: 10px;
-      background: #f9f9f9;
       box-shadow: 0 4px 6px rgba(0,0,0,0.1);
       text-align: center;
     }
@@ -136,13 +131,11 @@
       margin-bottom: 20px;
     }
     .videos-row {
-      display: flex;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 20px;
-      flex-wrap: wrap;
-      justify-content: center;
     }
     .video-card {
-      width: 300px;
       border-radius: 12px;
       overflow: hidden;
       box-shadow: 0 4px 6px rgba(0,0,0,0.1);
@@ -159,7 +152,6 @@
       padding: 10px;
       font-size: 14px;
       text-align: center;
-      margin-top: 40px;
     }
   </style>
 </head>
@@ -175,85 +167,46 @@
     </div>
   </div>
 
-  <div class="content">
-    <!-- Верхние 2 блока -->
-    <div class="top-row">
-      <div>
-        <img src="https://github.com/kkskkskskx/build/blob/main/ardu.webp?raw=true" alt="Arduino Kit">
-        <div class="highlight">Новий набір Arduino купити!</div>
-      </div>
-      <div>
-        <img src="https://github.com/kkskkskskx/build/blob/main/logika.png?raw=true" alt="Logika">
-        <div class="highlight">Навчитись програмувати та робити сайти тут!</div>
-      </div>
+  <div class="main-layout">
+    <!-- Сайдбар -->
+    <div class="sidebar">
+      <img src="https://github.com/kkskkskskx/build/blob/main/html_tag2.png?raw=true" alt="icon1">
+      <img src="https://github.com/kkskkskskx/build/blob/main/telegka.jpg?raw=true" alt="icon2">
+      <img src="https://raw.githubusercontent.com/kkskkskskx/build/refs/heads/main/images.jfif" alt="icon3">
     </div>
 
-    <!-- Основной блок -->
-    <div class="main-grid">
-      <!-- Левая колонка -->
-      <div class="icons">
-        <img src="https://github.com/kkskkskskx/build/blob/main/html_tag2.png?raw=true" alt="icon1">
-        <img src="https://github.com/kkskkskskx/build/blob/main/telegka.jpg?raw=true" alt="icon2">
-        <img src="https://raw.githubusercontent.com/kkskkskskx/build/refs/heads/main/images.jfif" alt="icon3">
-      </div>
-
-      <!-- Правая колонка -->
-      <div class="blocks">
-        <!-- Первая строка -->
-        <div class="row">
-          <div class="card">
-            <img src="https://github.com/kkskkskskx/build/blob/main/simplergb-prev.webp?raw=true" alt="">
-            <p>RGB контроллер для логотипа канала</p>
-          </div>
-          <div class="card">
-            <img src="https://github.com/kkskkskskx/build/blob/main/thumbnail.jpeg?raw=true" alt="">
-            <p>WemosD1 Mini Деаунтифікатор 2.4Ghz NetherCap</p>
-          </div>
-          <div class="card">
-            <img src="https://github.com/kkskkskskx/build/blob/main/ripcalendar.webp?raw=true" alt="">
-            <p>Отривна Метео станція</p>
-          </div>
-          <div class="card">
-            <img src="https://github.com/kkskkskskx/build/blob/main/maxresdefault%20(1).jpg?raw=true" alt="">
-            <p>Читалка або шпаргалка</p>
-          </div>
+    <!-- Контент -->
+    <div class="content">
+      <!-- Верхние 2 блока -->
+      <div class="top-row">
+        <div>
+          <img src="https://github.com/kkskkskskx/build/blob/main/ardu.webp?raw=true" alt="Arduino Kit">
+          <div class="highlight">Новий набір Arduino купити!</div>
         </div>
-
-        <!-- Вторая строка -->
-        <div class="row">
-          <div class="card">
-            <img src="https://github.com/kkskkskskx/build/blob/main/solder2-1-600x401.webp?raw=true" alt="">
-            <p>ArduinoKit Start Купуй скоріше</p>
-          </div>
-          <div class="card">
-            <img src="https://github.com/kkskkskskx/build/blob/main/starterkit_02.unbox_934x700.webp?raw=true" alt="">
-            <p>Набір інструментів для Arduino</p>
-          </div>
-          <div class="card">
-            <img src="https://github.com/kkskkskskx/build/blob/main/260722262.webp?raw=true" alt="">
-            <p>Проводки (Дюпони)</p>
-          </div>
-        </div>
-
-        <!-- Третья строка -->
-        <div class="row">
-          <div class="card">
-            <img src="https://github.com/kkskkskskx/build/blob/main/logika.png?raw=true" alt="">
-            <p>Навчитись програмувати та робити сайти тут</p>
-          </div>
+        <div>
+          <img src="https://github.com/kkskkskskx/build/blob/main/logika.png?raw=true" alt="Logika">
+          <div class="highlight">Навчитись програмувати та робити сайти тут!</div>
         </div>
       </div>
-    </div>
 
-    <!-- Нові відео -->
-    <div class="videos">
-      <h2>Нові відео</h2>
-      <div class="videos-row">
-        <div class="video-card">
-          <img src="https://github.com/kkskkskskx/build/blob/main/thumbnail.jpeg?raw=true" alt="">
-        </div>
-        <div class="video-card">
-          <img src="https://github.com/kkskkskskx/build/blob/main/maxresdefault%20(1).jpg?raw=true" alt="">
+      <!-- Карточки -->
+      <div class="grid">
+        <div class="card"><img src="https://github.com/kkskkskskx/build/blob/main/simplergb-prev.webp?raw=true"><p>RGB контроллер для логотипа канала</p></div>
+        <div class="card"><img src="https://github.com/kkskkskskx/build/blob/main/thumbnail.jpeg?raw=true"><p>WemosD1 Mini Деаунтифікатор 2.4Ghz NetherCap</p></div>
+        <div class="card"><img src="https://github.com/kkskkskskx/build/blob/main/ripcalendar.webp?raw=true"><p>Отривна Метео станція</p></div>
+        <div class="card"><img src="https://github.com/kkskkskskx/build/blob/main/maxresdefault%20(1).jpg?raw=true"><p>Читалка або шпаргалка</p></div>
+        <div class="card"><img src="https://github.com/kkskkskskx/build/blob/main/solder2-1-600x401.webp?raw=true"><p>ArduinoKit Start Купуй скоріше</p></div>
+        <div class="card"><img src="https://github.com/kkskkskskx/build/blob/main/starterkit_02.unbox_934x700.webp?raw=true"><p>Набір інструментів для Arduino</p></div>
+        <div class="card"><img src="https://github.com/kkskkskskx/build/blob/main/260722262.webp?raw=true"><p>Проводки (Дюпони)</p></div>
+        <div class="card"><img src="https://github.com/kkskkskskx/build/blob/main/logika.png?raw=true"><p>Навчитись програмувати та робити сайти тут</p></div>
+      </div>
+
+      <!-- Нові відео -->
+      <div class="videos">
+        <h2>Нові відео</h2>
+        <div class="videos-row">
+          <div class="video-card"><img src="https://github.com/kkskkskskx/build/blob/main/thumbnail.jpeg?raw=true"></div>
+          <div class="video-card"><img src="https://github.com/kkskkskskx/build/blob/main/maxresdefault%20(1).jpg?raw=true"></div>
         </div>
       </div>
     </div>
