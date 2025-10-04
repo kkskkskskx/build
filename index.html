@@ -3,36 +3,68 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Планеты космоса</title>
+<title>Планеты Космоса</title>
 <style>
-  /* Общие стили */
+  /* Основной фон */
   body {
     margin: 0;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background: radial-gradient(ellipse at bottom, #0f2027, #203a43, #2c5364);
-    overflow-x: hidden;
     color: #fff;
+    overflow-x: hidden;
   }
 
-  h1, h2, h3 {
-    text-align: center;
-  }
-
+  /* Header и Navbar */
   header {
-    padding: 60px 20px;
-    text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
+    padding: 20px 40px;
+    text-align: center;
+    background: rgba(0,0,0,0.3);
+    backdrop-filter: blur(5px);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.5);
   }
 
   header h1 {
     font-size: 3em;
-    animation: fadeIn 2s ease;
+    margin: 0;
+    text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
   }
 
-  /* Планеты */
+  nav {
+    margin-top: 15px;
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+  }
+
+  nav a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+    position: relative;
+    padding: 5px 10px;
+    transition: 0.3s ease;
+  }
+
+  nav a::after {
+    content: '';
+    position: absolute;
+    width: 0%;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: #fff;
+    transition: 0.3s;
+  }
+
+  nav a:hover::after {
+    width: 100%;
+  }
+
+  /* Анимированные планеты */
   .planet {
     position: absolute;
     border-radius: 50%;
-    background: radial-gradient(circle at 30% 30%, #ff9a9e, #fad0c4);
     box-shadow: 0 0 30px rgba(255,255,255,0.5);
     animation: float 10s infinite alternate ease-in-out;
   }
@@ -42,6 +74,7 @@
     height: 80px;
     top: 20%;
     left: 10%;
+    background: radial-gradient(circle at 30% 30%, #ff9a9e, #fad0c4);
     animation-duration: 12s;
   }
 
@@ -69,18 +102,15 @@
     100% {transform: translateY(0) translateX(0) rotate(0deg);}
   }
 
-  @keyframes fadeIn {
-    from {opacity: 0; transform: translateY(-20px);}
-    to {opacity: 1; transform: translateY(0);}
-  }
-
-  /* Секция с планетами */
+  /* Секция с карточками */
   section {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     gap: 30px;
     padding: 50px 20px;
+    position: relative;
+    z-index: 1;
   }
 
   .card {
@@ -91,23 +121,31 @@
     width: 250px;
     text-align: center;
     box-shadow: 0 10px 20px rgba(0,0,0,0.3);
-    transition: transform 0.5s ease, box-shadow 0.5s ease;
+    transition: transform 0.5s ease, box-shadow 0.5s ease, background 0.5s ease;
   }
 
   .card:hover {
     transform: translateY(-10px) scale(1.05);
     box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+    background: rgba(255,255,255,0.2);
   }
+
+  /* Рандомные изображения через CSS классы */
+  .planet-img1 {background-image: url('https://picsum.photos/200/200?planet1');}
+  .planet-img2 {background-image: url('https://picsum.photos/200/200?planet2');}
+  .planet-img3 {background-image: url('https://picsum.photos/200/200?planet3');}
+  .planet-img4 {background-image: url('https://picsum.photos/200/200?planet4');}
 
   .card img {
     width: 100%;
     border-radius: 50%;
     margin-bottom: 15px;
-    transition: transform 0.5s ease;
+    transition: transform 0.5s ease, filter 0.5s ease;
   }
 
   .card img:hover {
-    transform: scale(1.1);
+    transform: scale(1.1) rotate(5deg);
+    filter: brightness(1.2);
   }
 
   footer {
@@ -118,13 +156,20 @@
     font-weight: bold;
     margin-top: 50px;
   }
+
 </style>
 </head>
 <body>
 
 <header>
   <h1>Планеты Космоса</h1>
-  <p>Красивый сайт с анимациями и рассказами о планетах</p>
+  <nav>
+    <a href="#">Главная</a>
+    <a href="#">Марс</a>
+    <a href="#">Юпитер</a>
+    <a href="#">Сатурн</a>
+    <a href="#">Земля</a>
+  </nav>
 </header>
 
 <!-- Анимационные планеты -->
@@ -134,24 +179,24 @@
 
 <section>
   <div class="card">
-    <img src="https://picsum.photos/200/200?planet1" alt="Марс">
+    <img class="planet-img1" alt="Марс" src="https://picsum.photos/200/200?planet1">
     <h3>Марс</h3>
-    <p>Марс — красная планета, четвертая от Солнца. Известен своими каньонами и пылевыми бурями.</p>
+    <p>Красная планета с каньонами и пылевыми бурями.</p>
   </div>
   <div class="card">
-    <img src="https://picsum.photos/200/200?planet2" alt="Юпитер">
+    <img class="planet-img2" alt="Юпитер" src="https://picsum.photos/200/200?planet2">
     <h3>Юпитер</h3>
-    <p>Юпитер — крупнейшая планета Солнечной системы. Имеет знаменитое Большое Красное Пятно.</p>
+    <p>Крупнейшая планета Солнечной системы с Большим Красным Пятном.</p>
   </div>
   <div class="card">
-    <img src="https://picsum.photos/200/200?planet3" alt="Сатурн">
+    <img class="planet-img3" alt="Сатурн" src="https://picsum.photos/200/200?planet3">
     <h3>Сатурн</h3>
-    <p>Сатурн известен своими великолепными кольцами и газовой структурой атмосферы.</p>
+    <p>Известен своими кольцами и газовой атмосферой.</p>
   </div>
   <div class="card">
-    <img src="https://picsum.photos/200/200?planet4" alt="Земля">
+    <img class="planet-img4" alt="Земля" src="https://picsum.photos/200/200?planet4">
     <h3>Земля</h3>
-    <p>Земля — единственная планета с подтверждённой жизнью. Имеет океаны, атмосферу и разнообразные экосистемы.</p>
+    <p>Единственная планета с подтверждённой жизнью и океанами.</p>
   </div>
 </section>
 
