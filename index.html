@@ -63,12 +63,14 @@
       align-items: flex-start;
     }
 
-    /* Ліва колонка (іконки в лінію) */
+    /* Ліва колонка (чітка вертикальна лінія) */
     .icons {
       display: flex;
       flex-direction: column;
-      align-items: center;
-      gap: 40px;
+      justify-content: flex-start;
+      align-items: center; /* чітко по центру */
+      gap: 50px; /* однаковий відступ */
+      padding-top: 10px;
     }
     .icons img {
       width: 80px;
@@ -91,7 +93,7 @@
 
     /* Карточки */
     .card {
-      flex: 1 1 calc(25% - 20px); /* 4 в ряд на великих екранах */
+      flex: 1 1 calc(25% - 20px); /* 4 в ряд */
       min-width: 220px;
       max-width: 260px;
       border: 1px solid #ccc;
@@ -133,15 +135,15 @@
 
     /* Адаптивність */
     @media (max-width: 992px) {
-      .card { flex: 1 1 calc(33.3% - 20px); } /* 3 в ряд */
+      .card { flex: 1 1 calc(33.3% - 20px); }
     }
     @media (max-width: 768px) {
       .main-grid { flex-direction: column; align-items: center; }
-      .card { flex: 1 1 calc(50% - 20px); } /* 2 в ряд */
+      .card { flex: 1 1 calc(50% - 20px); }
       .icons { flex-direction: row; justify-content: center; }
     }
     @media (max-width: 480px) {
-      .card { flex: 1 1 100%; } /* 1 в ряд */
+      .card { flex: 1 1 100%; }
       .icons img { width: 60px; }
     }
 
