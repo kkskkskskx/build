@@ -32,7 +32,6 @@
     /* Контент */
     .content {
       padding: 20px;
-      text-align: center;
       max-width: 1200px;
       margin: auto;
     }
@@ -41,11 +40,11 @@
     .top-row {
       display: flex;
       justify-content: center;
-      flex-wrap: wrap;
       gap: 40px;
       margin-bottom: 40px;
+      flex-wrap: wrap;
     }
-    .top-row div { max-width: 250px; }
+    .top-row div { max-width: 250px; text-align: center; }
     .top-row img {
       max-width: 230px;
       border: 1px solid #ccc;
@@ -55,22 +54,20 @@
     }
     .highlight { color: red; font-weight: bold; margin-top: 10px; }
 
-    /* Основна структура */
+    /* Основна сітка */
     .main-grid {
-      display: flex;
-      gap: 30px;
-      justify-content: center;
-      align-items: flex-start;
+      display: grid;
+      grid-template-columns: 120px 1fr; /* ліва колонка вузька, права заповнює */
+      gap: 40px;
+      align-items: start;
     }
 
-    /* Ліва колонка (чітка вертикальна лінія) */
+    /* Ліва колонка (ікони чітко по вертикалі) */
     .icons {
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-start;
-      align-items: center; /* чітко по центру */
-      gap: 50px; /* однаковий відступ */
-      padding-top: 10px;
+      display: grid;
+      grid-template-rows: repeat(3, auto);
+      gap: 60px; /* однаковий відступ між */
+      justify-items: center;
     }
     .icons img {
       width: 80px;
@@ -80,22 +77,15 @@
       border-radius: 10px;
     }
 
-    /* Права колонка (карточки) */
+    /* Права колонка */
     .blocks {
-      flex: 1;
-    }
-    .row {
-      display: flex;
-      flex-wrap: wrap;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
       gap: 20px;
-      justify-content: flex-start;
     }
 
     /* Карточки */
     .card {
-      flex: 1 1 calc(25% - 20px); /* 4 в ряд */
-      min-width: 220px;
-      max-width: 260px;
       border: 1px solid #ccc;
       border-radius: 12px;
       padding: 10px;
@@ -116,12 +106,12 @@
     }
 
     /* Нові відео */
-    .videos { margin-top: 50px; }
+    .videos { margin-top: 50px; text-align: center; }
     .videos h2 { font-size: 24px; margin-bottom: 20px; }
     .videos-row {
       display: flex;
-      flex-wrap: wrap;
       gap: 20px;
+      flex-wrap: wrap;
       justify-content: center;
     }
     .video-card {
@@ -135,26 +125,11 @@
 
     /* Адаптивність */
     @media (max-width: 992px) {
-      .card { flex: 1 1 calc(33.3% - 20px); }
+      .main-grid { grid-template-columns: 100px 1fr; }
     }
     @media (max-width: 768px) {
-      .main-grid { flex-direction: column; align-items: center; }
-      .card { flex: 1 1 calc(50% - 20px); }
-      .icons { flex-direction: row; justify-content: center; }
-    }
-    @media (max-width: 480px) {
-      .card { flex: 1 1 100%; }
-      .icons img { width: 60px; }
-    }
-
-    /* Підвал */
-    .footer {
-      background: #222;
-      color: #ffcc00;
-      padding: 10px;
-      font-size: 14px;
-      text-align: center;
-      margin-top: 40px;
+      .main-grid { grid-template-columns: 1fr; }
+      .icons { grid-template-columns: repeat(3, 1fr); grid-template-rows: auto; }
     }
   </style>
 </head>
@@ -183,7 +158,7 @@
       </div>
     </div>
 
-    <!-- Основна частина -->
+    <!-- Основна сітка -->
     <div class="main-grid">
       <!-- Ліва колонка -->
       <div class="icons">
@@ -194,20 +169,14 @@
 
       <!-- Права колонка -->
       <div class="blocks">
-        <div class="row">
-          <div class="card"><img src="https://github.com/kkskkskskx/build/blob/main/simplergb-prev.webp?raw=true"><p>RGB контроллер для логотипа канала</p></div>
-          <div class="card"><img src="https://github.com/kkskkskskx/build/blob/main/thumbnail.jpeg?raw=true"><p>WemosD1 Mini Деаунтифікатор 2.4Ghz NetherCap</p></div>
-          <div class="card"><img src="https://github.com/kkskkskskx/build/blob/main/ripcalendar.webp?raw=true"><p>Отривна Метео станція</p></div>
-          <div class="card"><img src="https://github.com/kkskkskskx/build/blob/main/maxresdefault%20(1).jpg?raw=true"><p>Читалка або шпаргалка</p></div>
-        </div>
-        <div class="row">
-          <div class="card"><img src="https://github.com/kkskkskskx/build/blob/main/solder2-1-600x401.webp?raw=true"><p>ArduinoKit Start Купуй скоріше</p></div>
-          <div class="card"><img src="https://github.com/kkskkskskx/build/blob/main/starterkit_02.unbox_934x700.webp?raw=true"><p>Набір інструментів для Arduino</p></div>
-          <div class="card"><img src="https://github.com/kkskkskskx/build/blob/main/260722262.webp?raw=true"><p>Проводки (Дюпони)</p></div>
-        </div>
-        <div class="row">
-          <div class="card"><img src="https://github.com/kkskkskskx/build/blob/main/logika.png?raw=true"><p>Навчитись програмувати та робити сайти тут</p></div>
-        </div>
+        <div class="card"><img src="https://github.com/kkskkskskx/build/blob/main/simplergb-prev.webp?raw=true"><p>RGB контроллер для логотипа канала</p></div>
+        <div class="card"><img src="https://github.com/kkskkskskx/build/blob/main/thumbnail.jpeg?raw=true"><p>WemosD1 Mini Деаунтифікатор 2.4Ghz NetherCap</p></div>
+        <div class="card"><img src="https://github.com/kkskkskskx/build/blob/main/ripcalendar.webp?raw=true"><p>Отривна Метео станція</p></div>
+        <div class="card"><img src="https://github.com/kkskkskskx/build/blob/main/maxresdefault%20(1).jpg?raw=true"><p>Читалка або шпаргалка</p></div>
+        <div class="card"><img src="https://github.com/kkskkskskx/build/blob/main/solder2-1-600x401.webp?raw=true"><p>ArduinoKit Start Купуй скоріше</p></div>
+        <div class="card"><img src="https://github.com/kkskkskskx/build/blob/main/starterkit_02.unbox_934x700.webp?raw=true"><p>Набір інструментів для Arduino</p></div>
+        <div class="card"><img src="https://github.com/kkskkskskx/build/blob/main/260722262.webp?raw=true"><p>Проводки (Дюпони)</p></div>
+        <div class="card"><img src="https://github.com/kkskkskskx/build/blob/main/logika.png?raw=true"><p>Навчитись програмувати та робити сайти тут</p></div>
       </div>
     </div>
 
@@ -219,11 +188,6 @@
         <div class="video-card"><img src="https://github.com/kkskkskskx/build/blob/main/maxresdefault%20(1).jpg?raw=true"></div>
       </div>
     </div>
-  </div>
-
-  <!-- Підвал -->
-  <div class="footer">
-    Copyright © 2025 ArduinoHub Technologies
   </div>
 </body>
 </html>
