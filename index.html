@@ -1,8 +1,5 @@
-<!DOCTYPE html>
-<html lang="uk">
+<html>
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Планети Космосу</title>
 <style>
   body {
@@ -35,7 +32,10 @@
       80vw 20vh white;
     animation: twinkle 3s infinite alternate;
   }
-  @keyframes twinkle { 0% {opacity: 0.3;} 100% {opacity: 1;} }
+  @keyframes twinkle {
+    0% {opacity: 0.3;}
+    100% {opacity: 1;}
+  }
 
   header {
     padding: 20px 40px;
@@ -46,11 +46,13 @@
     position: relative;
     z-index: 2;
   }
+
   header h1 {
     font-size: 2.8em;
     margin: 0;
     text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
   }
+
   nav {
     margin-top: 15px;
     display: flex;
@@ -58,6 +60,7 @@
     flex-wrap: wrap;
     gap: 25px;
   }
+
   nav a {
     text-decoration: none;
     color: #fff;
@@ -66,6 +69,7 @@
     position: relative;
     transition: 0.3s;
   }
+
   nav a::after {
     content: '';
     position: absolute;
@@ -76,7 +80,10 @@
     background-color: #fff;
     transition: width 0.3s;
   }
-  nav a:hover::after { width: 100%; }
+
+  nav a:hover::after {
+    width: 100%;
+  }
 
   .planet {
     position: absolute;
@@ -84,29 +91,100 @@
     box-shadow: 0 0 25px rgba(255,255,255,0.4);
     animation: float 10s infinite alternate ease-in-out;
   }
-  .planet1 { width: 100px; height: 100px; top: 20%; left: 10%; background: url('https://upload.wikimedia.org/wikipedia/commons/thumb/3/3d/Mercury_in_true_color.jpg/330px-Mercury_in_true_color.jpg') center/cover no-repeat; animation-duration: 12s; }
-  .planet2 { width: 100px; height: 100px; top: 40%; left: 20%; background: url('https://upload.wikimedia.org/wikipedia/commons/6/6f/Venus-real_color.jpg') center/cover no-repeat; animation-duration: 13s; }
-  .planet3 { width: 100px; height: 100px; top: 60%; left: 30%; background: url('https://upload.wikimedia.org/wikipedia/commons/9/97/Earth.png') center/cover no-repeat; animation-duration: 14s; }
-  .planet4 { width: 100px; height: 100px; top: 30%; left: 50%; background: url('https://upload.wikimedia.org/wikipedia/commons/0/02/Mars_Valles_Marineris_EDIT.jpg') center/cover no-repeat; animation-duration: 15s; }
 
-  .planet5 { width: 130px; height: 130px; top: 50%; left: 70%; background: url('https://upload.wikimedia.org/wikipedia/commons/5/50/Jupiter%2C_image_taken_by_NASA%27s_Hubble_Space_Telescope%2C_June_2019_-_Edited.jpg') center/cover no-repeat; animation-duration: 15s; }
-  .planet6 { width: 120px; height: 120px; top: 55%; left: 80%; background: url('https://upload.wikimedia.org/wikipedia/commons/c/c7/Saturn_during_Equinox.jpg') center/cover no-repeat; animation-duration: 16s; }
-  .planet7 { width: 100px; height: 100px; top: 70%; left: 60%; background: url('https://upload.wikimedia.org/wikipedia/commons/5/56/Uranus2.jpg') center/cover no-repeat; animation-duration: 17s; }
-  .planet8 { width: 100px; height: 100px; top: 75%; left: 40%; background: url('https://upload.wikimedia.org/wikipedia/commons/3/3d/Neptune_Full.jpg') center/cover no-repeat; animation-duration: 18s; }
+  .planet1 {
+    width: 100px; height: 100px;
+    top: 20%; left: 10%;
+    background: url('https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/Mars_Valles_Marineris_EDIT.jpg/330px-Mars_Valles_Marineris_EDIT.jpg') center/cover no-repeat;
+    animation-duration: 12s;
+  }
 
-  @keyframes float { 0% {transform: translate(0, 0) rotate(0);} 50% {transform: translate(20px, -30px) rotate(30deg);} 100% {transform: translate(0, 0) rotate(0);} }
+  .planet2 {
+    width: 130px; height: 130px;
+    top: 50%; left: 70%;
+    background: url('https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/Jupiter%2C_image_taken_by_NASA%27s_Hubble_Space_Telescope%2C_June_2019_-_Edited.jpg/330px-Jupiter%2C_image_taken_by_NASA%27s_Hubble_Space_Telescope%2C_June_2019_-_Edited.jpg') center/cover no-repeat;
+    animation-duration: 15s;
+  }
 
-  .intro { max-width: 800px; margin: 50px auto 0; text-align: center; line-height: 1.8; font-size: 1.1em; background: rgba(255,255,255,0.1); border-radius: 20px; padding: 25px; box-shadow: 0 0 20px rgba(0,0,0,0.4); }
+  .planet3 {
+    width: 80px; height: 80px;
+    top: 75%; left: 30%;
+    background: url('https://upload.wikimedia.org/wikipedia/commons/5/54/Europa-moon.jpg') center/cover no-repeat;
+    animation-duration: 9s;
+  }
 
-  section { display: flex; flex-wrap: wrap; justify-content: center; gap: 25px; padding: 60px 20px; position: relative; z-index: 1; max-width: 1100px; margin: auto; }
-  .card { background: rgba(255,255,255,0.1); backdrop-filter: blur(10px); border-radius: 20px; padding: 20px; width: 250px; text-align: center; box-shadow: 0 10px 20px rgba(0,0,0,0.3); transition: transform 0.4s ease, box-shadow 0.4s ease; }
-  .card:hover { transform: translateY(-10px) scale(1.05); box-shadow: 0 20px 40px rgba(0,0,0,0.5); background: rgba(255,255,255,0.2); }
-  .card img { width: 250px; height: 168px; border-radius: 50%; margin-bottom: 15px; transition: transform 0.5s ease, filter 0.5s ease; }
-  .card img:hover { transform: scale(1.1) rotate(5deg); filter: brightness(1.2); }
+  @keyframes float {
+    0% {transform: translate(0, 0) rotate(0);}
+    50% {transform: translate(20px, -30px) rotate(30deg);}
+    100% {transform: translate(0, 0) rotate(0);}
+  }
 
-  footer { text-align: center; padding: 25px; background: rgba(0,0,0,0.3); backdrop-filter: blur(5px); font-weight: bold; z-index: 2; }
+  section {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 25px;
+    padding: 60px 20px;
+    position: relative;
+    z-index: 1;
+  }
 
-  @media (max-width: 768px) { header h1 { font-size: 2em; } nav { gap: 15px; } .planet { display: none; } section { justify-content: center; } }
+  .intro {
+    max-width: 800px;
+    margin: 50px auto 0;
+    text-align: center;
+    line-height: 1.8;
+    font-size: 1.1em;
+    background: rgba(255,255,255,0.1);
+    border-radius: 20px;
+    padding: 25px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.4);
+  }
+
+  .card {
+    background: rgba(255,255,255,0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 20px;
+    width: 250px;
+    text-align: center;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+  }
+
+  .card:hover {
+    transform: translateY(-10px) scale(1.05);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+    background: rgba(255,255,255,0.2);
+  }
+
+  .card img {
+    width: 250px;
+    height: 168px;
+    border-radius: 50%;
+    margin-bottom: 15px;
+    transition: transform 0.5s ease, filter 0.5s ease;
+  } 
+  
+  .card img:hover { 
+    transform: scale(1.1) rotate(5deg); 
+    filter: brightness(1.2); 
+  }
+
+  footer {
+    text-align: center;
+    padding: 25px;
+    background: rgba(0,0,0,0.3);
+    backdrop-filter: blur(5px);
+    font-weight: bold;
+    z-index: 2;
+  }
+
+  @media (max-width: 768px) {
+    header h1 { font-size: 2em; }
+    nav { gap: 15px; }
+    .planet { display: none; }
+  }
 </style>
 </head>
 <body>
@@ -127,65 +205,70 @@
 <div class="planet planet1"></div>
 <div class="planet planet2"></div>
 <div class="planet planet3"></div>
-<div class="planet planet4"></div>
-<div class="planet planet5"></div>
-<div class="planet planet6"></div>
-<div class="planet planet7"></div>
-<div class="planet planet8"></div>
 
 <div class="intro">
   <h2>Ласкаво просимо у світ космосу!</h2>
   <p>Цей сайт присвячений найцікавішим планетам нашої Сонячної системи.  
-  Тут ви знайдете зображення, короткі описи та дивовижні факти про планети від Меркурія до Нептуна.</p>
+  Тут ви знайдете зображення, короткі описи та дивовижні факти про Марс, Юпітер, Сатурн і Землю.  
+  Ми створили цей проект, щоб показати, наскільки гарний і загадковий наш Всесвіт.</p>
 </div>
 
 <section>
-  <!-- Верхний ряд 4 планеты -->
   <div class="card">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3d/Mercury_in_true_color.jpg/330px-Mercury_in_true_color.jpg" alt="Меркурій">
-    <h3>Меркурій</h3>
-  </div>
-  <div class="card">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6f/Venus-real_color.jpg" alt="Венера">
-    <h3>Венера</h3>
-  </div>
-  <div class="card">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/9/97/Earth.png" alt="Земля">
-    <h3>Земля</h3>
-  </div>
-  <div class="card">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/0/02/Mars_Valles_Marineris_EDIT.jpg" alt="Марс">
+    <img src="mars.jpg" alt="Марс" title="Планета Марс" loading="lazy">
     <h3>Марс</h3>
+    <p>Червона планета з каньйонами та пиловими бурями.</p>
   </div>
-
-  <!-- Нижний ряд 4 планеты -->
   <div class="card">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/5/50/Jupiter%2C_image_taken_by_NASA%27s_Hubble_Space_Telescope%2C_June_2019_-_Edited.jpg" alt="Юпітер">
+    <img src="upiter.jpg" alt="Юпітер" title="Планета Юпітер" loading="lazy">
     <h3>Юпітер</h3>
+    <p>Найбільша планета Сонячної системи з Великою Червоною Плямою.</p>
   </div>
   <div class="card">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/c/c7/Saturn_during_Equinox.jpg" alt="Сатурн">
+    <img src="saturn.jpg" alt="Сатурн" title="Планета Сатурн" loading="lazy">
     <h3>Сатурн</h3>
+    <p>Відомий своїми кільцями та газовою атмосферою.</p>
   </div>
   <div class="card">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/5/56/Uranus2.jpg" alt="Уран">
-    <h3>Уран</h3>
-  </div>
-  <div class="card">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/3/3d/Neptune_Full.jpg" alt="Нептун">
-    <h3>Нептун</h3>
+    <img src="zemla.jpg" alt="Земля" title="Планета Земля" loading="lazy">
+    <h3>Земля</h3>
+    <p>Єдина планета з підтвердженим життям та океанами.</p>
   </div>
 </section>
 
-<div id="alien-easter" style="display:none; position:fixed; inset:0; background:black; color:#ff0; 
-  font-size:2em; text-align:center; line-height:100vh; z-index:9999;">
-  👽 Ви знайшли запис від пришельців! 🌌
-</div>
+<section>
+  <div class="card">
+    <img src="mars.jpg" alt="Марс" title="Планета Марс" loading="lazy">
+    <h3>Марс</h3>
+    <p>Червона планета з каньйонами та пиловими бурями.</p>
+  </div>
+  <div class="card">
+    <img src="upiter.jpg" alt="Юпітер" title="Планета Юпітер" loading="lazy">
+    <h3>Юпітер</h3>
+    <p>Найбільша планета Сонячної системи з Великою Червоною Плямою.</p>
+  </div>
+  <div class="card">
+    <img src="saturn.jpg" alt="Сатурн" title="Планета Сатурн" loading="lazy">
+    <h3>Сатурн</h3>
+    <p>Відомий своїми кільцями та газовою атмосферою.</p>
+  </div>
+  <div class="card">
+    <img src="zemla.jpg" alt="Земля" title="Планета Земля" loading="lazy">
+    <h3>Земля</h3>
+    <p>Єдина планета з підтвердженим життям та океанами.</p>
+  </div>
+</section>
 
+<div id="alien-easter" style="display:none; position:fixed; inset:0; background: url('ufo.png'); color:#ff0; 
+  font-size:2em; text-align:center; line-height:100vh; z-index:9999;">
+  👽 Ви знайшли запис від пришельців, які побували на цьому сайті! 🌌
+</div>
+  
 <footer>
   <span id="year">&copy; 2025</span> Планети Космосу. Всі права захищено.
 </footer>
 
+</body>
 <script>
   const year = document.getElementById('year');
   const alien = document.getElementById('alien-easter');
@@ -193,14 +276,14 @@
 
   year.addEventListener('click', () => {
     document.body.querySelectorAll('header, section, footer, .planet, .intro').forEach(el => el.style.display = 'none');
+
     alien.style.display = 'block';
+
     alienSound.play();
+
     alienSound.addEventListener('ended', () => {
       alien.style.display = 'none';
       document.body.querySelectorAll('header, section, footer, .planet, .intro').forEach(el => el.style.display = '');
     });
   });
 </script>
-
-</body>
-</html>
