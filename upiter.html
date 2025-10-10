@@ -3,9 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Юпітер — Найбільша планета Сонячної системи</title>
+<title>Юпітер — Планети Космосу</title>
+<meta name="description" content="Юпітер — найбільша планета Сонячної системи. Дізнайтеся про її характеристики, атмосферу, супутники та цікаві факти.">
 <style>
-  /* 🌌 Основний фон з анімованими зірками */
+  /* 🌌 Основний фон і зірки */
   body {
     margin: 0;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -14,15 +15,12 @@
     overflow-x: hidden;
   }
 
-  /* Зірки */
   .stars {
     position: fixed;
-    width: 100%;
-    height: 100%;
-    background: transparent;
+    inset: 0;
     z-index: 0;
+    background: transparent;
   }
-
   .stars::after {
     content: '';
     position: absolute;
@@ -39,25 +37,24 @@
       80vw 20vh white;
     animation: twinkle 3s infinite alternate;
   }
-
   @keyframes twinkle {
-    0% {opacity: 0.2;}
+    0% {opacity: 0.3;}
     100% {opacity: 1;}
   }
 
-  /* Header */
+  /* 🪐 Header */
   header {
     padding: 20px 40px;
     text-align: center;
     background: rgba(0,0,0,0.3);
-    backdrop-filter: blur(5px);
+    backdrop-filter: blur(6px);
     box-shadow: 0 4px 15px rgba(0,0,0,0.5);
     position: relative;
     z-index: 2;
   }
 
   header h1 {
-    font-size: 3em;
+    font-size: 2.8em;
     margin: 0;
     text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
   }
@@ -66,17 +63,17 @@
     margin-top: 15px;
     display: flex;
     justify-content: center;
-    gap: 40px;
     flex-wrap: wrap;
+    gap: 25px;
   }
 
   nav a {
     text-decoration: none;
     color: #fff;
     font-weight: bold;
-    position: relative;
     padding: 5px 10px;
-    transition: 0.3s ease;
+    position: relative;
+    transition: 0.3s;
   }
 
   nav a::after {
@@ -84,107 +81,139 @@
     position: absolute;
     width: 0%;
     height: 2px;
-    bottom: 0;
     left: 0;
+    bottom: 0;
     background-color: #fff;
-    transition: 0.3s;
+    transition: width 0.3s;
   }
 
   nav a:hover::after {
     width: 100%;
   }
 
-  /* Анімовані планети */
+  /* 🌍 Анімовані планети */
   .planet {
     position: absolute;
     border-radius: 50%;
-    box-shadow: 0 0 30px rgba(255,255,255,0.5);
+    box-shadow: 0 0 25px rgba(255,255,255,0.4);
     animation: float 10s infinite alternate ease-in-out;
   }
 
   .planet1 {
-    width: 100px;
-    height: 100px;
-    top: 15%;
-    left: 10%;
+    width: 100px; height: 100px;
+    top: 20%; left: 10%;
     background: url('https://cdn.pixabay.com/photo/2016/11/29/04/23/jupiter-1866601_960_720.jpg') center/cover no-repeat;
     animation-duration: 12s;
   }
 
   .planet2 {
-    width: 140px;
-    height: 140px;
-    top: 60%;
-    left: 70%;
+    width: 130px; height: 130px;
+    top: 55%; left: 70%;
     background: url('https://upload.wikimedia.org/wikipedia/commons/5/54/Europa-moon.jpg') center/cover no-repeat;
     animation-duration: 15s;
   }
 
   .planet3 {
-    width: 80px;
-    height: 80px;
-    top: 70%;
-    left: 30%;
+    width: 80px; height: 80px;
+    top: 70%; left: 30%;
     background: url('https://upload.wikimedia.org/wikipedia/commons/5/5a/Ganymede_g1_true-edit1.jpg') center/cover no-repeat;
-    animation-duration: 8s;
+    animation-duration: 9s;
   }
 
   @keyframes float {
-    0% {transform: translateY(0) translateX(0) rotate(0deg);}
-    50% {transform: translateY(-40px) translateX(20px) rotate(45deg);}
-    100% {transform: translateY(0) translateX(0) rotate(0deg);}
+    0% {transform: translate(0, 0) rotate(0);}
+    50% {transform: translate(20px, -30px) rotate(30deg);}
+    100% {transform: translate(0, 0) rotate(0);}
   }
 
-  /* Контент секції */
+  /* 🧩 Контент секцій */
   section {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 30px;
-    padding: 50px 20px;
+    padding: 60px 20px;
+    text-align: center;
     position: relative;
     z-index: 1;
   }
 
-  .card {
+  section h2 {
+    color: #ffda79;
+    font-size: 2.2em;
+    margin-bottom: 25px;
+  }
+
+  p, li { line-height: 1.7; }
+
+  /* 📊 Таблиця характеристик */
+  table {
+    margin: 0 auto;
+    border-collapse: collapse;
+    width: 85%;
+    max-width: 700px;
+    background: rgba(255,255,255,0.1);
+    border-radius: 15px;
+    overflow: hidden;
+  }
+  td, th {
+    padding: 15px;
+    border-bottom: 1px solid rgba(255,255,255,0.2);
+  }
+  th {
+    background: rgba(0,0,0,0.3);
+    color: #ffda79;
+  }
+
+  /* 🛰️ Супутники */
+  .moon-cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 25px;
+  }
+
+  .moon {
     background: rgba(255,255,255,0.1);
     backdrop-filter: blur(10px);
     border-radius: 20px;
     padding: 20px;
-    width: 250px;
-    text-align: center;
+    width: 230px;
     box-shadow: 0 10px 20px rgba(0,0,0,0.3);
-    transition: transform 0.5s ease, box-shadow 0.5s ease, background 0.5s ease;
+    transition: transform 0.4s ease;
   }
 
-  .card:hover {
-    transform: translateY(-10px) scale(1.05);
-    box-shadow: 0 20px 40px rgba(0,0,0,0.5);
-    background: rgba(255,255,255,0.2);
+  .moon:hover { transform: translateY(-10px) scale(1.05); }
+
+  .moon img {
+    width: 100%;
+    border-radius: 15px;
+    margin-bottom: 10px;
   }
 
-  .card img {
-    width: 250px;
-    height: 168px;
-    border-radius: 50%;
-    margin-bottom: 15px;
-    transition: transform 0.5s ease, filter 0.5s ease;
+  /* 📚 Факти */
+  ul {
+    list-style: none;
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 0;
+    text-align: left;
   }
-
-  .card img:hover {
-    transform: scale(1.1) rotate(5deg);
-    filter: brightness(1.2);
+  ul li::before {
+    content: "✨ ";
+    color: #ffda79;
   }
 
   footer {
     text-align: center;
-    padding: 30px 20px;
+    padding: 25px;
     background: rgba(0,0,0,0.3);
     backdrop-filter: blur(5px);
     font-weight: bold;
-    margin-top: 50px;
-    position: relative;
     z-index: 2;
+  }
+
+  /* 📱 Адаптив */
+  @media (max-width: 768px) {
+    header h1 { font-size: 2em; }
+    .planet { display: none; }
+    table { width: 95%; }
   }
 </style>
 </head>
@@ -203,37 +232,62 @@
   </nav>
 </header>
 
-<!-- Анімовані планети -->
 <div class="planet planet1"></div>
 <div class="planet planet2"></div>
 <div class="planet planet3"></div>
 
 <section>
-  <div class="card">
-    <img src="https://cdn.pixabay.com/photo/2016/11/29/04/23/jupiter-1866601_960_720.jpg" alt="Юпітер">
-    <h3>Юпітер</h3>
-    <p>П’ята планета від Сонця, гігант з масивною атмосферою, що складається переважно з водню та гелію.</p>
+  <h2>Про Юпітер</h2>
+  <p>Юпітер — п’ята планета від Сонця і найбільша у Сонячній системі. Його діаметр становить понад 142 тисячі кілометрів, що в 11 разів більше за діаметр Землі. Атмосфера складається переважно з водню та гелію, а Велика Червона Пляма — гігантська буря, яка триває вже сотні років.</p>
+</section>
+
+<section>
+  <h2>Основні характеристики</h2>
+  <table>
+    <tr><th>Параметр</th><th>Значення</th></tr>
+    <tr><td>Діаметр</td><td>142,984 км</td></tr>
+    <tr><td>Маса</td><td>1.898 × 10³⁰ г (317,8 мас Землі)</td></tr>
+    <tr><td>Тривалість доби</td><td>9 год 56 хв</td></tr>
+    <tr><td>Рік (оберт навколо Сонця)</td><td>11,86 земних років</td></tr>
+    <tr><td>Температура хмар</td><td>~ -145°C</td></tr>
+    <tr><td>Кількість супутників</td><td>більше 90</td></tr>
+  </table>
+</section>
+
+<section>
+  <h2>Галілеєві супутники</h2>
+  <div class="moon-cards">
+    <div class="moon">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/7/7a/Io_highest_resolution_true_color.jpg" alt="Іо">
+      <h3>Іо</h3>
+      <p>Найактивніший вулканічний світ у Сонячній системі.</p>
+    </div>
+    <div class="moon">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/5/54/Europa-moon.jpg" alt="Європа">
+      <h3>Європа</h3>
+      <p>Під крижаною поверхнею, ймовірно, існує океан рідкої води.</p>
+    </div>
+    <div class="moon">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/5/5a/Ganymede_g1_true-edit1.jpg" alt="Ганімед">
+      <h3>Ганімед</h3>
+      <p>Найбільший супутник у Сонячній системі.</p>
+    </div>
+    <div class="moon">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/9/9f/Callisto.jpg" alt="Калісто">
+      <h3>Калісто</h3>
+      <p>Дуже стара поверхня, вкрита кратерами.</p>
+    </div>
   </div>
-  <div class="card">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/7/7a/Io_highest_resolution_true_color.jpg" alt="Іо">
-    <h3>Іо</h3>
-    <p>Найактивніший вулканічний світ у Сонячній системі — один із чотирьох великих супутників Юпітера.</p>
-  </div>
-  <div class="card">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/5/54/Europa-moon.jpg" alt="Європа">
-    <h3>Європа</h3>
-    <p>Покрита льодовою кіркою, під якою, ймовірно, ховається океан рідкої води.</p>
-  </div>
-  <div class="card">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/5/5a/Ganymede_g1_true-edit1.jpg" alt="Ганімед">
-    <h3>Ганімед</h3>
-    <p>Найбільший супутник у Сонячній системі, навіть більший за планету Меркурій.</p>
-  </div>
-  <div class="card">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/9/9f/Callisto.jpg" alt="Калісто">
-    <h3>Калісто</h3>
-    <p>Один із найстаріших небесних тіл, його поверхня рясніє кратерами.</p>
-  </div>
+</section>
+
+<section>
+  <h2>Цікаві факти</h2>
+  <ul>
+    <li>Юпітер має найпотужніше магнітне поле серед усіх планет Сонячної системи.</li>
+    <li>Велика Червона Пляма — буря, яка існує понад 350 років.</li>
+    <li>Планета швидко обертається — доба триває менше 10 годин.</li>
+    <li>Юпітер захищає Землю, відхиляючи багато астероїдів своїм гравітаційним полем.</li>
+  </ul>
 </section>
 
 <footer>
