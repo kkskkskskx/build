@@ -4,8 +4,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Планети Космосу</title>
+<meta name="description" content="Дізнайтеся про Марс, Юпітер, Сатурн та інші планети Сонячної системи. Космічний сайт із анімаціями та цікавими фактами.">
+
 <style>
-  /* Основний фон з анімованими зірками */
+  /* 🌌 Основний фон і зірки */
   body {
     margin: 0;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -14,13 +16,11 @@
     overflow-x: hidden;
   }
 
-  /* Зірки */
   .stars {
     position: fixed;
-    width: 100%;
-    height: 100%;
-    background: transparent;
+    inset: 0;
     z-index: 0;
+    background: transparent;
   }
   .stars::after {
     content: '';
@@ -39,23 +39,23 @@
     animation: twinkle 3s infinite alternate;
   }
   @keyframes twinkle {
-    0% {opacity: 0.2;}
+    0% {opacity: 0.3;}
     100% {opacity: 1;}
   }
 
-  /* Header та Navbar */
+  /* 🪐 Header */
   header {
     padding: 20px 40px;
     text-align: center;
     background: rgba(0,0,0,0.3);
-    backdrop-filter: blur(5px);
+    backdrop-filter: blur(6px);
     box-shadow: 0 4px 15px rgba(0,0,0,0.5);
     position: relative;
     z-index: 2;
   }
 
   header h1 {
-    font-size: 3em;
+    font-size: 2.8em;
     margin: 0;
     text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
   }
@@ -64,17 +64,17 @@
     margin-top: 15px;
     display: flex;
     justify-content: center;
-    gap: 40px;
     flex-wrap: wrap;
+    gap: 25px;
   }
 
   nav a {
     text-decoration: none;
     color: #fff;
     font-weight: bold;
-    position: relative;
     padding: 5px 10px;
-    transition: 0.3s ease;
+    position: relative;
+    transition: 0.3s;
   }
 
   nav a::after {
@@ -82,64 +82,58 @@
     position: absolute;
     width: 0%;
     height: 2px;
-    bottom: 0;
     left: 0;
+    bottom: 0;
     background-color: #fff;
-    transition: 0.3s;
+    transition: width 0.3s;
   }
 
   nav a:hover::after {
     width: 100%;
   }
 
-  /* Анімовані планети */
+  /* 🌍 Анімовані планети */
   .planet {
     position: absolute;
     border-radius: 50%;
-    box-shadow: 0 0 30px rgba(255,255,255,0.5);
+    box-shadow: 0 0 25px rgba(255,255,255,0.4);
     animation: float 10s infinite alternate ease-in-out;
   }
 
   .planet1 {
-    width: 100px;
-    height: 100px;
-    top: 20%;
-    left: 10%;
+    width: 100px; height: 100px;
+    top: 20%; left: 10%;
     background: url('https://cdn.pixabay.com/photo/2015/09/18/18/03/mars-944029_960_720.jpg') center/cover no-repeat;
     animation-duration: 12s;
   }
 
   .planet2 {
-    width: 140px;
-    height: 140px;
-    top: 50%;
-    left: 70%;
+    width: 130px; height: 130px;
+    top: 50%; left: 70%;
     background: url('https://cdn.pixabay.com/photo/2016/11/29/04/23/jupiter-1866601_960_720.jpg') center/cover no-repeat;
     animation-duration: 15s;
   }
 
   .planet3 {
-    width: 80px;
-    height: 80px;
-    top: 70%;
-    left: 30%;
+    width: 80px; height: 80px;
+    top: 75%; left: 30%;
     background: url('https://cdn.pixabay.com/photo/2015/09/18/18/03/saturn-944028_960_720.jpg') center/cover no-repeat;
-    animation-duration: 8s;
+    animation-duration: 9s;
   }
 
   @keyframes float {
-    0% {transform: translateY(0) translateX(0) rotate(0deg);}
-    50% {transform: translateY(-40px) translateX(20px) rotate(45deg);}
-    100% {transform: translateY(0) translateX(0) rotate(0deg);}
+    0% {transform: translate(0, 0) rotate(0);}
+    50% {transform: translate(20px, -30px) rotate(30deg);}
+    100% {transform: translate(0, 0) rotate(0);}
   }
 
-  /* Секція з картками */
+  /* 🧩 Картки планет */
   section {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 30px;
-    padding: 50px 20px;
+    gap: 25px;
+    padding: 60px 20px;
     position: relative;
     z-index: 1;
   }
@@ -152,38 +146,37 @@
     width: 250px;
     text-align: center;
     box-shadow: 0 10px 20px rgba(0,0,0,0.3);
-    transition: transform 0.5s ease, box-shadow 0.5s ease, background 0.5s ease;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
   }
 
   .card:hover {
     transform: translateY(-10px) scale(1.05);
-    box-shadow: 0 20px 40px rgba(0,0,0,0.5);
-    background: rgba(255,255,255,0.2);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.5);
   }
 
   .card img {
-    width: 250px;
-    height: 168px;
+    width: 100%;
+    height: auto;
     border-radius: 50%;
     margin-bottom: 15px;
-    transition: transform 0.5s ease, filter 0.5s ease;
-  }
-
-  .card img:hover {
-    transform: scale(1.1) rotate(5deg);
-    filter: brightness(1.2);
   }
 
   footer {
     text-align: center;
-    padding: 30px 20px;
+    padding: 25px;
     background: rgba(0,0,0,0.3);
     backdrop-filter: blur(5px);
     font-weight: bold;
-    margin-top: 50px;
-    position: relative;
     z-index: 2;
   }
+
+  /* 📱 Адаптивність */
+  @media (max-width: 768px) {
+    header h1 { font-size: 2em; }
+    nav { gap: 15px; }
+    .planet { display: none; } /* приховуємо важкі анімації на мобільних */
+  }
+
 </style>
 </head>
 <body>
@@ -201,29 +194,28 @@
   </nav>
 </header>
 
-<!-- Анімовані планети -->
 <div class="planet planet1"></div>
 <div class="planet planet2"></div>
 <div class="planet planet3"></div>
 
 <section>
   <div class="card">
-    <img src="mars.jpg" alt="Марс">
+    <img src="mars.jpg" alt="Марс" title="Планета Марс" loading="lazy">
     <h3>Марс</h3>
     <p>Червона планета з каньйонами та пиловими бурями.</p>
   </div>
   <div class="card">
-    <img src="upiter.jpg" alt="Юпітер">
+    <img src="upiter.jpg" alt="Юпітер" title="Планета Юпітер" loading="lazy">
     <h3>Юпітер</h3>
     <p>Найбільша планета Сонячної системи з Великим Червоним Плямою.</p>
   </div>
   <div class="card">
-    <img src="saturn.jpg" alt="Сатурн">
+    <img src="saturn.jpg" alt="Сатурн" title="Планета Сатурн" loading="lazy">
     <h3>Сатурн</h3>
     <p>Відомий своїми кільцями та газовою атмосферою.</p>
   </div>
   <div class="card">
-    <img src="zemla.jpg" alt="Земля">
+    <img src="zemla.jpg" alt="Земля" title="Планета Земля" loading="lazy">
     <h3>Земля</h3>
     <p>Єдина планета з підтвердженим життям та океанами.</p>
   </div>
