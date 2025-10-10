@@ -247,22 +247,22 @@
   const alienSound = new Audio('alien.wav');
 
   year.addEventListener('click', () => {
-    // звук
-    alienSound.play();
-    
-    // скрываем остальное
+    // Скрываем весь сайт
     document.body.querySelectorAll('header, section, footer, .planet, .intro').forEach(el => el.style.display = 'none');
 
-    // показываем пасхалку
+    // Показываем пасхалку
     alien.style.display = 'block';
 
-    // анимация: UFO падает сверху
-    setTimeout(() => { ufo.style.top = '40%'; }, 100); 
+    // Запускаем звук
+    alienSound.play();
 
-    // можно через 3-4 сек вернуть обратно
-    setTimeout(() => {
+    // Анимация UFO падает сверху
+    setTimeout(() => { ufo.style.top = '40%'; }, 100);
+
+    // Когда звук закончился — возвращаем всё обратно
+    alienSound.addEventListener('ended', () => {
       alien.style.display = 'none';
       document.body.querySelectorAll('header, section, footer, .planet, .intro').forEach(el => el.style.display = '');
-    }, 5000);
+    });
   });
 </script>
