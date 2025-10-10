@@ -6,7 +6,7 @@
 <title>Юпітер — Планети Космосу</title>
 <meta name="description" content="Юпітер — найбільша планета Сонячної системи. Дізнайтеся про її характеристики, атмосферу, супутники та цікаві факти.">
 <style>
-  /* 🌌 Фон + звезды */
+  /* 🌌 ФОН І ЗІРКИ */
   body {
     margin: 0;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -21,6 +21,7 @@
     z-index: 0;
     background: transparent;
   }
+
   .stars::after {
     content: '';
     position: absolute;
@@ -28,21 +29,18 @@
     height: 2px;
     background: white;
     box-shadow:
-      50vw 10vh white,
-      20vw 80vh white,
-      70vw 30vh white,
-      10vw 50vh white,
-      90vw 70vh white,
-      40vw 60vh white,
-      80vw 20vh white;
+      5vw 10vh white, 15vw 50vh white, 25vw 90vh white, 35vw 30vh white,
+      45vw 80vh white, 55vw 20vh white, 65vw 70vh white, 75vw 40vh white,
+      85vw 60vh white, 95vw 25vh white;
     animation: twinkle 3s infinite alternate;
   }
+
   @keyframes twinkle {
-    0% {opacity: 0.3;}
-    100% {opacity: 1;}
+    0% { opacity: 0.3; }
+    100% { opacity: 1; }
   }
 
-  /* Header */
+  /* 🪐 HEADER */
   header {
     padding: 20px 40px;
     text-align: center;
@@ -50,7 +48,7 @@
     backdrop-filter: blur(6px);
     box-shadow: 0 4px 15px rgba(0,0,0,0.5);
     position: relative;
-    z-index: 2;
+    z-index: 3;
   }
 
   header h1 {
@@ -91,47 +89,64 @@
     width: 100%;
   }
 
-  /* Увеличенные анимированные планеты на заднем плане */
+  /* 🌍 Анімовані планети */
   .planet {
     position: absolute;
     border-radius: 50%;
-    box-shadow: 0 0 35px rgba(255,255,255,0.5);
-    animation: float 20s infinite alternate ease-in-out;
+    box-shadow: 0 0 35px rgba(255,255,255,0.4);
+    animation: float 18s infinite alternate ease-in-out;
+    z-index: 1;
   }
 
+  /* Верхні планети */
   .planet1 {
-    width: 200px; height: 200px;
-    top: 15%; left: 5%;
+    width: 180px; height: 180px;
+    top: 15%; left: 8%;
     background: url('https://cdn.pixabay.com/photo/2016/11/29/04/23/jupiter-1866601_960_720.jpg') center/cover no-repeat;
-    animation-duration: 14s;
+    animation-duration: 12s;
   }
 
   .planet2 {
-    width: 180px; height: 180px;
-    top: 55%; left: 72%;
-    background: url('https://upload.wikimedia.org/wikipedia/commons/5/54/Europa-moon.jpg') center/cover no-repeat;
-    animation-duration: 18s;
-  }
-
-  .planet3 {
-    width: 150px; height: 150px;
-    top: 70%; left: 30%;
-    background: url('https://upload.wikimedia.org/wikipedia/commons/5/5a/Ganymede_g1_true-edit1.jpg') center/cover no-repeat;
+    width: 130px; height: 130px;
+    top: 25%; left: 70%;
+    background: url('https://upload.wikimedia.org/wikipedia/commons/7/7a/Io_highest_resolution_true_color.jpg') center/cover no-repeat;
     animation-duration: 16s;
   }
 
-  @keyframes float {
-    0% {transform: translate(0, 0) rotate(0);}
-    50% {transform: translate(30px, -40px) rotate(45deg);}
-    100% {transform: translate(0, 0) rotate(0);}
+  .planet3 {
+    width: 100px; height: 100px;
+    top: 40%; left: 40%;
+    background: url('https://upload.wikimedia.org/wikipedia/commons/5/54/Europa-moon.jpg') center/cover no-repeat;
+    animation-duration: 10s;
   }
 
-  /* Контент */
+  /* Нижні планети */
+  .planet4 {
+    width: 220px; height: 220px;
+    bottom: 10%; left: 5%;
+    background: url('https://upload.wikimedia.org/wikipedia/commons/5/5a/Ganymede_g1_true-edit1.jpg') center/cover no-repeat;
+    animation-duration: 14s;
+  }
+
+  .planet5 {
+    width: 150px; height: 150px;
+    bottom: 15%; left: 75%;
+    background: url('https://upload.wikimedia.org/wikipedia/commons/9/9f/Callisto.jpg') center/cover no-repeat;
+    animation-duration: 20s;
+  }
+
+  @keyframes float {
+    0% { transform: translate(0, 0) rotate(0); }
+    50% { transform: translate(25px, -35px) rotate(30deg); }
+    100% { transform: translate(0, 0) rotate(0); }
+  }
+
+  /* 📘 Контент */
   section {
+    position: relative;
+    z-index: 2;
     padding: 60px 20px;
     text-align: center;
-    position: relative;
-    z-index: 1;
   }
 
   section h2 {
@@ -146,7 +161,6 @@
     margin: 0 auto;
   }
 
-  /* Таблица характеристик */
   table {
     margin: 30px auto;
     border-collapse: collapse;
@@ -156,16 +170,17 @@
     border-radius: 15px;
     overflow: hidden;
   }
+
   td, th {
     padding: 15px;
     border-bottom: 1px solid rgba(255,255,255,0.2);
   }
+
   th {
     background: rgba(0,0,0,0.3);
     color: #ffda79;
   }
 
-  /* Супутники */
   .moon-cards {
     display: flex;
     flex-wrap: wrap;
@@ -183,7 +198,9 @@
     transition: transform 0.4s ease;
   }
 
-  .moon:hover { transform: translateY(-10px) scale(1.05); }
+  .moon:hover {
+    transform: translateY(-10px) scale(1.05);
+  }
 
   .moon img {
     width: 100%;
@@ -191,7 +208,6 @@
     margin-bottom: 10px;
   }
 
-  /* Факты */
   ul {
     list-style: none;
     max-width: 700px;
@@ -199,6 +215,7 @@
     padding: 0;
     text-align: left;
   }
+
   ul li::before {
     content: "✨ ";
     color: #ffda79;
@@ -210,9 +227,10 @@
     background: rgba(0,0,0,0.3);
     backdrop-filter: blur(5px);
     font-weight: bold;
-    z-index: 2;
+    z-index: 3;
   }
 
+  /* 📱 Адаптивність */
   @media (max-width: 768px) {
     header h1 { font-size: 2em; }
     .planet { display: none; }
@@ -235,14 +253,17 @@
   </nav>
 </header>
 
-<!-- Увеличенные анимированные планеты -->
+<!-- 🌌 Анімовані планети (задній план) -->
 <div class="planet planet1"></div>
 <div class="planet planet2"></div>
 <div class="planet planet3"></div>
+<div class="planet planet4"></div>
+<div class="planet planet5"></div>
 
+<!-- 📘 Контент -->
 <section>
   <h2>Про Юпітер</h2>
-  <p>Юпітер — п’ята планета від Сонця і найбільша у Сонячній системі. Його діаметр понад 142 000 км, атмосфера — в основному водень і гелій. Велика Червона Пляма — буря сторіччями.</p>
+  <p>Юпітер — п’ята планета від Сонця і найбільша у Сонячній системі. Його маса у 318 разів більша за земну, а діаметр сягає 142 984 км. Атмосфера Юпітера складається з водню, гелію та домішок аміаку й метану. Велика Червона Пляма — гігантська буря, що триває сотні років.</p>
 </section>
 
 <section>
@@ -251,10 +272,10 @@
     <tr><th>Параметр</th><th>Значення</th></tr>
     <tr><td>Діаметр</td><td>142,984 км</td></tr>
     <tr><td>Маса</td><td>1.898 × 10³⁰ г</td></tr>
-    <tr><td>Тривалість доби</td><td>9 год 56 хв</td></tr>
+    <tr><td>Доба</td><td>9 год 56 хв</td></tr>
     <tr><td>Рік</td><td>11,86 земних років</td></tr>
-    <tr><td>Температура хмар</td><td>~ -145 °C</td></tr>
-    <tr><td>Супутники</td><td>понад 90</td></tr>
+    <tr><td>Температура</td><td>−145 °C (у хмарах)</td></tr>
+    <tr><td>Супутники</td><td>Понад 90</td></tr>
   </table>
 </section>
 
@@ -269,17 +290,17 @@
     <div class="moon">
       <img src="https://upload.wikimedia.org/wikipedia/commons/5/54/Europa-moon.jpg" alt="Європа">
       <h3>Європа</h3>
-      <p>Під крижаною поверхнею, ймовірно, є океан рідкої води.</p>
+      <p>Під крижаною поверхнею може бути океан рідкої води.</p>
     </div>
     <div class="moon">
       <img src="https://upload.wikimedia.org/wikipedia/commons/5/5a/Ganymede_g1_true-edit1.jpg" alt="Ганімед">
       <h3>Ганімед</h3>
-      <p>Найбільший супутник у Сонячній системі.</p>
+      <p>Найбільший супутник у Сонячній системі, навіть більший за Меркурій.</p>
     </div>
     <div class="moon">
       <img src="https://upload.wikimedia.org/wikipedia/commons/9/9f/Callisto.jpg" alt="Калісто">
       <h3>Калісто</h3>
-      <p>Дуже стара поверхня, вкрита кратерами.</p>
+      <p>Найбільш кратерована поверхня серед усіх відомих об’єктів.</p>
     </div>
   </div>
 </section>
@@ -287,10 +308,10 @@
 <section>
   <h2>Цікаві факти</h2>
   <ul>
-    <li>Юпітер має найсильніше магнітне поле.</li>
-    <li>Велика Червона Пляма існує понад 350 років.</li>
-    <li>Планета обертається дуже швидко — доба менше 10 годин.</li>
-    <li>Юпітер захищає Землю, притягує чи відхиляє астероїди.</li>
+    <li>Юпітер має найсильніше магнітне поле серед усіх планет.</li>
+    <li>Велика Червона Пляма більша за Землю і триває понад 350 років.</li>
+    <li>Планета обертається дуже швидко — доба триває менше 10 годин.</li>
+    <li>Юпітер захищає Землю, відхиляючи астероїди та комети.</li>
   </ul>
 </section>
 
