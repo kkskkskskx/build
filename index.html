@@ -1,13 +1,7 @@
-<!DOCTYPE html>
-<html lang="uk">
+<html>
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Планети Космосу</title>
-<meta name="description" content="Дізнайтеся про Марс, Юпітер, Сатурн та інші планети Сонячної системи. Космічний сайт із анімаціями та цікавими фактами.">
-
 <style>
-  /* 🌌 Основний фон і зірки */
   body {
     margin: 0;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -43,7 +37,6 @@
     100% {opacity: 1;}
   }
 
-  /* 🪐 Header */
   header {
     padding: 20px 40px;
     text-align: center;
@@ -92,7 +85,6 @@
     width: 100%;
   }
 
-  /* 🌍 Анімовані планети */
   .planet {
     position: absolute;
     border-radius: 50%;
@@ -127,7 +119,6 @@
     100% {transform: translate(0, 0) rotate(0);}
   }
 
-  /* 🧩 Картки планет */
   section {
     display: flex;
     flex-wrap: wrap;
@@ -136,6 +127,18 @@
     padding: 60px 20px;
     position: relative;
     z-index: 1;
+  }
+
+  .intro {
+    max-width: 800px;
+    margin: 50px auto 0;
+    text-align: center;
+    line-height: 1.8;
+    font-size: 1.1em;
+    background: rgba(255,255,255,0.1);
+    border-radius: 20px;
+    padding: 25px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.4);
   }
 
   .card {
@@ -170,13 +173,11 @@
     z-index: 2;
   }
 
-  /* 📱 Адаптивність */
   @media (max-width: 768px) {
     header h1 { font-size: 2em; }
     nav { gap: 15px; }
-    .planet { display: none; } /* приховуємо важкі анімації на мобільних */
+    .planet { display: none; }
   }
-
 </style>
 </head>
 <body>
@@ -197,6 +198,13 @@
 <div class="planet planet1"></div>
 <div class="planet planet2"></div>
 <div class="planet planet3"></div>
+
+<div class="intro">
+  <h2>Ласкаво просимо у світ космосу!</h2>
+  <p>Цей сайт присвячений найцікавішим планетам нашої Сонячної системи.  
+  Тут ви знайдете зображення, короткі описи та дивовижні факти про Марс, Юпітер, Сатурн і Землю.  
+  Ми створили цей проект, щоб показати, наскільки красивий і загадковий наш Всесвіт.</p>
+</div>
 
 <section>
   <div class="card">
