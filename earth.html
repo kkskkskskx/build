@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Земля — Планети Космосу</title>
+<meta name="description" content="Земля — наш дім у Всесвіті. Дізнайтеся про атмосферу, океани, супутник Місяць та цікаві факти про планету.">
+<style>
+  /* 🌌 Фон і зірки */
+  body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: radial-gradient(ellipse at bottom, #0f2027, #203a43, #2c5364);
+    color: #fff;
+    overflow-x: hidden;
+  }
+
+  .stars {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    background: transparent;
+  }
+  .stars::after {
+    content: '';
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background: white;
+    box-shadow:
+      50vw 10vh white,
+      20vw 80vh white,
+      70vw 30vh white,
+      10vw 50vh white,
+      90vw 70vh white,
+      40vw 60vh white,
+      80vw 20vh white;
+    animation: twinkle 3s infinite alternate;
+  }
+  @keyframes twinkle {
+    0% {opacity: 0.3;}
+    100% {opacity: 1;}
+  }
+
+  /* 🪐 Header */
+  header {
+    padding: 20px 40px;
+    text-align: center;
+    background: rgba(0,0,0,0.3);
+    backdrop-filter: blur(6px);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+    position: relative;
+    z-index: 2;
+  }
+
+  header h1 {
+    font-size: 2.8em;
+    margin: 0;
+    text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
+  }
+
+  nav {
+    margin-top: 15px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 25px;
+  }
+
+  nav a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+    padding: 5px 10px;
+    position: relative;
+    transition: 0.3s;
+  }
+
+  nav a::after {
+    content: '';
+    position: absolute;
+    width: 0%;
+    height: 2px;
+    left: 0;
+    bottom: 0;
+    background-color: #fff;
+    transition: width 0.3s;
+  }
+
+  nav a:hover::after {
+    width: 100%;
+  }
+
+  /* 🌍 Анімовані планети */
+  .planet {
+    position: absolute;
+    border-radius: 50%;
+    box-shadow: 0 0 35px rgba(255,255,255,0.5);
+    animation: float 20s infinite alternate ease-in-out;
+  }
+
+  .planet1 {
+    width: 180px; height: 180px;
+    top: 15%; left: 10%;
+    background: url('https://cdn.pixabay.com/photo/2015/09/18/18/03/mars-944029_960_720.jpg') center/cover no-repeat;
+    animation-duration: 12s;
+  }
+
+  .planet2 {
+    width: 220px; height: 220px;
+    top: 50%; left: 70%;
+    background: url('https://cdn.pixabay.com/photo/2016/11/29/04/23/jupiter-1866601_960_720.jpg') center/cover no-repeat;
+    animation-duration: 15s;
+  }
+
+  .planet3 {
+    width: 180px; height: 180px;
+    top: 70%; left: 30%;
+    background: url('https://cdn.pixabay.com/photo/2013/07/18/20/25/earth-164661_960_720.jpg') center/cover no-repeat;
+    animation-duration: 16s;
+  }
+
+  @keyframes float {
+    0% {transform: translate(0, 0) rotate(0);}
+    50% {transform: translate(30px, -40px) rotate(45deg);}
+    100% {transform: translate(0, 0) rotate(0);}
+  }
+
+  /* Контент */
+  section {
+    padding: 60px 20px;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+  }
+
+  section h2 {
+    color: #7dd3fc;
+    font-size: 2.2em;
+    margin-bottom: 25px;
+  }
+
+  p, li {
+    line-height: 1.7;
+    max-width: 700px;
+    margin: 0 auto;
+  }
+
+  /* Таблиця характеристик */
+  table {
+    margin: 30px auto;
+    border-collapse: collapse;
+    width: 85%;
+    max-width: 700px;
+    background: rgba(255,255,255,0.1);
+    border-radius: 15px;
+    overflow: hidden;
+  }
+
+  td, th {
+    padding: 15px;
+    border-bottom: 1px solid rgba(255,255,255,0.2);
+  }
+
+  th {
+    background: rgba(0,0,0,0.3);
+    color: #7dd3fc;
+  }
+
+  /* Супутники */
+  .moon-cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 25px;
+  }
+
+  .moon {
+    background: rgba(255,255,255,0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 20px;
+    width: 230px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+    transition: transform 0.4s ease;
+  }
+
+  .moon:hover { transform: translateY(-10px) scale(1.05); }
+
+  .moon img {
+    width: 100%;
+    border-radius: 15px;
+    margin-bottom: 10px;
+  }
+
+  /* Факти */
+  ul {
+    list-style: none;
+    max-width: 700px;
+    margin: 20px auto;
+    padding: 0;
+    text-align: left;
+  }
+  ul li::before {
+    content: "🌎 ";
+    color: #7dd3fc;
+  }
+
+  footer {
+    text-align: center;
+    padding: 25px;
+    background: rgba(0,0,0,0.3);
+    backdrop-filter: blur(5px);
+    font-weight: bold;
+    z-index: 2;
+  }
+
+  @media (max-width: 768px) {
+    header h1 { font-size: 2em; }
+    .planet { display: none; }
+    table { width: 95%; }
+  }
+</style>
+</head>
+<body>
+
+<div class="stars"></div>
+
+<header>
+  <h1>Земля — Планети Космосу</h1>
+  <nav>
+    <a href="index.html">Головна</a>
+    <a href="mars.html">Марс</a>
+    <a href="upiter.html">Юпітер</a>
+    <a href="saturn.html">Сатурн</a>
+    <a href="#">Земля</a>
+  </nav>
+</header>
+
+<!-- Анімовані планети -->
+<div class="planet planet1"></div>
+<div class="planet planet2"></div>
+<div class="planet planet3"></div>
+
+<section>
+  <h2>Про Землю</h2>
+  <p>Земля — третя планета від Сонця і єдина відома планета, на якій існує життя. Вона має багату атмосферу, океани, ліси, пустелі та льодовики, що створюють дивовижну гармонію природи.</p>
+</section>
+
+<section>
+  <h2>Основні характеристики</h2>
+  <table>
+    <tr><th>Параметр</th><th>Значення</th></tr>
+    <tr><td>Діаметр</td><td>12,742 км</td></tr>
+    <tr><td>Маса</td><td>5.972 × 10²⁴ кг</td></tr>
+    <tr><td>Тривалість доби</td><td>24 години</td></tr>
+    <tr><td>Рік</td><td>365,25 днів</td></tr>
+    <tr><td>Температура</td><td>≈ +15°C (середня)</td></tr>
+    <tr><td>Супутники</td><td>1 — Місяць</td></tr>
+  </table>
+</section>
+
+<section>
+  <h2>Супутник Землі</h2>
+  <div class="moon-cards">
+    <div class="moon">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/e/e1/FullMoon2010.jpg" alt="Місяць">
+      <h3>Місяць</h3>
+      <p>Єдиний природний супутник Землі. Впливає на припливи та відпливи океанів, а також стабілізує обертання планети.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>Цікаві факти</h2>
+  <ul>
+    <li>Близько 71% поверхні Землі покрито водою.</li>
+    <li>Атмосфера складається переважно з азоту (78%) і кисню (21%).</li>
+    <li>Земля — єдина планета з тектонічною активністю.</li>
+    <li>Місяць поступово віддаляється від Землі на 3,8 см щороку.</li>
+  </ul>
+</section>
+
+<footer>
+  &copy; 2025 Планети Космосу — Земля. Всі права захищено.
+</footer>
+
+</body>
+</html>
