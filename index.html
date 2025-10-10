@@ -230,8 +230,18 @@
 </section>
 
 <footer>
-  &copy; 2025 Планети Космосу. Всі права захищено.
+  <span id="year">&copy; 2025</span> Планети Космосу. Всі права захищено.
 </footer>
 
 </body>
+<script>
+  // создаем аудио объект (alien.wav должен быть в той же папке)
+  const alienSound = new Audio('alien.wav');
+
+  // ловим клик по 2025
+  document.getElementById('year').addEventListener('click', () => {
+    alienSound.play();
+    alert('👽 Ви знайшли пасхалку!');
+  });
+</script>
 </html>
