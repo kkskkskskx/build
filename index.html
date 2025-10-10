@@ -230,9 +230,8 @@
 </section>
 
 <div id="alien-easter" style="display:none; position:fixed; inset:0; background:black; color:#ff0; 
-  font-size:2em; text-align:center; z-index:9999; overflow:hidden;">
-  <div id="alien-message">👽 Ви знайшли запись від пришельців, які побували на цьому сайті! 🌌</div>
-  <img id="ufo" src="ufo.png" style="width:200px; position:absolute; top:-200px; left:50%; transform:translateX(-50%); transition:1.5s;">
+  font-size:2em; text-align:center; line-height:100vh; z-index:9999;">
+  👽 Ви знайшли запис від пришельців, які побували на цьому сайті! 🌌
 </div>
   
 <footer>
@@ -243,23 +242,15 @@
 <script>
   const year = document.getElementById('year');
   const alien = document.getElementById('alien-easter');
-  const ufo = document.getElementById('ufo');
   const alienSound = new Audio('alien.wav');
 
   year.addEventListener('click', () => {
-    // Скрываем весь сайт
     document.body.querySelectorAll('header, section, footer, .planet, .intro').forEach(el => el.style.display = 'none');
 
-    // Показываем пасхалку
     alien.style.display = 'block';
 
-    // Запускаем звук
     alienSound.play();
 
-    // Анимация UFO падает сверху
-    setTimeout(() => { ufo.style.top = '40%'; }, 100);
-
-    // Когда звук закончился — возвращаем всё обратно
     alienSound.addEventListener('ended', () => {
       alien.style.display = 'none';
       document.body.querySelectorAll('header, section, footer, .planet, .intro').forEach(el => el.style.display = '');
