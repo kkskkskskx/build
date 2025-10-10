@@ -229,18 +229,40 @@
   </div>
 </section>
 
+<div id="alien-easter" style="display:none; position:fixed; inset:0; background:black; color:#ff0; 
+  font-size:2em; text-align:center; z-index:9999; overflow:hidden;">
+  <div id="alien-message">👽 Ви знайшли запись від пришельців, які побували на цьому сайті! 🌌</div>
+  <img id="ufo" src="ufo.png" style="width:200px; position:absolute; top:-200px; left:50%; transform:translateX(-50%); transition:1.5s;">
+</div>
+  
 <footer>
   <span id="year">&copy; 2025</span> Планети Космосу. Всі права захищено.
 </footer>
 
 </body>
 <script>
+  const year = document.getElementById('year');
+  const alien = document.getElementById('alien-easter');
+  const ufo = document.getElementById('ufo');
   const alienSound = new Audio('alien.wav');
 
-  // ловим клик по 2025
-  document.getElementById('year').addEventListener('click', () => {
+  year.addEventListener('click', () => {
+    // звук
     alienSound.play();
-    alert('👽 Ви знайшли пасхалку!');
+    
+    // скрываем остальное
+    document.body.querySelectorAll('header, section, footer, .planet, .intro').forEach(el => el.style.display = 'none');
+
+    // показываем пасхалку
+    alien.style.display = 'block';
+
+    // анимация: UFO падает сверху
+    setTimeout(() => { ufo.style.top = '40%'; }, 100); 
+
+    // можно через 3-4 сек вернуть обратно
+    setTimeout(() => {
+      alien.style.display = 'none';
+      document.body.querySelectorAll('header, section, footer, .planet, .intro').forEach(el => el.style.display = '');
+    }, 5000);
   });
 </script>
-</html>
