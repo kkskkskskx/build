@@ -57,11 +57,19 @@
   nav {
     margin-top: 15px;
     display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .nav-top,
+  .nav-bottom {
+    display: flex;
     justify-content: center;
     flex-wrap: wrap;
     gap: 25px;
   }
-
+  
   nav a {
     text-decoration: none;
     color: #fff;
@@ -85,7 +93,7 @@
   nav a:hover::after {
     width: 100%;
   }
-
+  
   .planet {
     position: absolute;
     border-radius: 50%;
@@ -210,15 +218,19 @@
 <header>
   <h1>Планети Космосу</h1>
   <nav>
+  <div class="nav-top">
     <a href="#">Головна</a>
     <a href="merkury.html">Меркурій</a>
     <a href="venus.html">Венера</a>
     <a href="earth.html">Земля</a>
     <a href="mars.html">Марс</a>
+  </div>
+  <div class="nav-bottom">
     <a href="upiter.html">Юпітер</a>
     <a href="saturn.html">Сатурн</a>
     <a href="uran.html">Уран</a>
     <a href="neptune.html">Нептун</a>
+  </div>
   </nav>
 </header>
 
