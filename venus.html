@@ -1,0 +1,267 @@
+<html>
+<head>
+<title>Венера — Планети Космосу</title>
+<style>
+  body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: radial-gradient(ellipse at bottom, #2b1b47, #3b265c, #4a2e6b);
+    color: #fff;
+    overflow-x: hidden;
+  }
+
+  .stars {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    background: transparent;
+  }
+  .stars::after {
+    content: '';
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background: white;
+    box-shadow:
+      50vw 10vh white,
+      20vw 80vh white,
+      70vw 30vh white,
+      10vw 50vh white,
+      90vw 70vh white,
+      40vw 60vh white,
+      80vw 20vh white;
+    animation: twinkle 3s infinite alternate;
+  }
+  @keyframes twinkle {
+    0% {opacity: 0.3;}
+    100% {opacity: 1;}
+  }
+
+  header {
+    padding: 20px 40px;
+    text-align: center;
+    background: rgba(0,0,0,0.3);
+    backdrop-filter: blur(6px);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+    position: relative;
+    z-index: 2;
+  }
+
+  header h1 {
+    font-size: 2.8em;
+    margin: 0;
+    text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
+  }
+
+  nav {
+    margin-top: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .nav-top,
+  .nav-bottom {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 25px;
+  }
+  
+  nav a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+    padding: 5px 10px;
+    position: relative;
+    transition: 0.3s;
+  }
+
+  nav a::after {
+    content: '';
+    position: absolute;
+    width: 0%;
+    height: 2px;
+    left: 0;
+    bottom: 0;
+    background-color: #fff;
+    transition: width 0.3s;
+  }
+
+  nav a:hover::after {
+    width: 100%;
+  }
+
+  .planet {
+    position: absolute;
+    border-radius: 50%;
+    box-shadow: 0 0 35px rgba(255,255,255,0.5);
+    animation: float 20s infinite alternate ease-in-out;
+  }
+
+  .planet1 {
+    width: 100px; height: 100px;
+    top: 20%; left: 10%;
+    background: url('https://upload.wikimedia.org/wikipedia/commons/8/85/Venus_globe.jpg') center/cover no-repeat;
+    animation-duration: 12s;
+  }
+
+  .planet2 {
+    width: 130px; height: 130px;
+    top: 50%; left: 70%;
+    background: url('https://upload.wikimedia.org/wikipedia/commons/e/e5/Venus-real_color.jpg') center/cover no-repeat;
+    animation-duration: 15s;
+  }
+
+  .planet3 {
+    width: 80px; height: 80px;
+    top: 75%; left: 30%;
+    background: url('https://upload.wikimedia.org/wikipedia/commons/0/02/Venus_from_Mariner_10.jpg') center/cover no-repeat;
+    animation-duration: 9s;
+  }
+
+  @keyframes float {
+    0% {transform: translate(0, 0) rotate(0);}
+    50% {transform: translate(30px, -40px) rotate(45deg);}
+    100% {transform: translate(0, 0) rotate(0);}
+  }
+
+  section {
+    padding: 60px 20px;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+  }
+
+  section h2 {
+    color: #ffda79;
+    font-size: 2.2em;
+    margin-bottom: 25px;
+  }
+
+  p, li {
+    line-height: 1.7;
+    max-width: 700px;
+    margin: 0 auto;
+  }
+
+  table {
+    margin: 30px auto;
+    border-collapse: collapse;
+    width: 85%;
+    max-width: 700px;
+    background: rgba(255,255,255,0.1);
+    border-radius: 15px;
+    overflow: hidden;
+  }
+  td, th {
+    padding: 15px;
+    border-bottom: 1px solid rgba(255,255,255,0.2);
+  }
+  th {
+    background: rgba(0,0,0,0.3);
+    color: #ffda79;
+  }
+
+  .moon-cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 25px;
+  }
+
+  ul {
+    list-style: none;
+    max-width: 700px;
+    margin: 20px auto;
+    padding: 0;
+    text-align: left;
+  }
+  ul li::before {
+    content: "✨ ";
+    color: #ffda79;
+  }
+
+  footer {
+    text-align: center;
+    padding: 25px;
+    background: rgba(0,0,0,0.3);
+    backdrop-filter: blur(5px);
+    font-weight: bold;
+    z-index: 2;
+  }
+
+  @media (max-width: 768px) {
+    header h1 { font-size: 2em; }
+    .planet { display: none; }
+    table { width: 95%; }
+  }
+</style>
+</head>
+<body>
+
+<div class="stars"></div>
+
+<header>
+  <h1>Венера — Планети Космосу</h1>
+  <nav>
+  <div class="nav-top">
+    <a href="index.html">Головна</a>
+    <a href="merkury.html">Меркурій</a>
+    <a href="#">Венера</a>
+    <a href="earth.html">Земля</a>
+    <a href="mars.html">Марс</a>
+  </div>
+  <div class="nav-bottom">
+    <a href="upiter.html">Юпітер</a>
+    <a href="saturn.html">Сатурн</a>
+    <a href="uran.html">Уран</a>
+    <a href="neptune.html">Нептун</a>
+  </div>
+  </nav>
+</header>
+
+<div class="planet planet1"></div>
+<div class="planet planet2"></div>
+<div class="planet planet3"></div>
+
+<section>
+  <h2>Про Венеру</h2>
+  <p>Венера — друга планета від Сонця та найгарячіша в Сонячній системі. Її атмосфера складається переважно з вуглекислого газу, а поверхня прихована густими хмарами сірчаної кислоти. Тиск на поверхні у 92 рази більший, ніж на Землі.</p>
+</section>
+
+<section>
+  <h2>Основні характеристики</h2>
+  <table>
+    <tr><th>Параметр</th><th>Значення</th></tr>
+    <tr><td>Діаметр</td><td>12,104 км</td></tr>
+    <tr><td>Маса</td><td>4.867 × 10²⁴ кг</td></tr>
+    <tr><td>Тривалість доби</td><td>243 земні доби</td></tr>
+    <tr><td>Рік</td><td>225 земних днів</td></tr>
+    <tr><td>Температура поверхні</td><td>≈ +465°C</td></tr>
+    <tr><td>Кількість супутників</td><td>немає</td></tr>
+  </table>
+</section>
+
+<section>
+  <h2>Супутники Венери</h2>
+  <p>Венера не має природних супутників. Це одна з двох планет Сонячної системи без місяців (разом із Меркурієм).</p>
+</section>
+
+<section>
+  <h2>Цікаві факти</h2>
+  <ul>
+    <li>Венера обертається у зворотному напрямку — Сонце сходить на заході, а сідає на сході.</li>
+    <li>Атмосфера настільки щільна, що створює потужний парниковий ефект.</li>
+    <li>На Венері майже немає перепадів температури між днем і ніччю.</li>
+    <li>Її блиск настільки яскравий, що Венеру часто називають “ранковою зіркою”.</li>
+  </ul>
+</section>
+
+<footer>
+  &copy; 2025 Планети Космосу — Венера. Всі права захищено.
+</footer>
+
+</body>
+</html>
