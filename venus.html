@@ -96,8 +96,8 @@
   .planet {
     position: absolute;
     border-radius: 50%;
-    box-shadow: 0 0 35px rgba(255,255,255,0.5);
-    animation: float 20s infinite alternate ease-in-out;
+    box-shadow: 0 0 40px rgba(255,255,255,0.5);
+    animation: float 18s infinite alternate ease-in-out;
   }
 
   .planet1 {
@@ -162,6 +162,31 @@
   th {
     background: rgba(0,0,0,0.3);
     color: #ffda79;
+  }
+
+  .moon-cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 25px;
+  }
+
+  .moon {
+    background: rgba(255,255,255,0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 20px;
+    width: 230px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+    transition: transform 0.4s ease;
+  }
+
+  .moon:hover { transform: translateY(-10px) scale(1.05); }
+
+  .moon img {
+    width: 100%;
+    border-radius: 15px;
+    margin-bottom: 10px;
   }
 
   ul {
